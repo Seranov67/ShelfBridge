@@ -1,0 +1,92 @@
+[
+  {
+    "task": "T01",
+    "tasteIds": [
+      "b7a0731f-ec92-496a-9c40-47d9770489b6",
+      "f8167b93-169d-4eec-9cf2-69bbc2a8ac3a"
+    ],
+    "budgetMinor": 2500,
+    "unavailableWorkKey": "priory"
+  },
+  {
+    "task": "T02",
+    "tasteIds": [
+      "c7ec4ca9-1ccc-4991-b738-55f075441b3f",
+      "70cae5bf-2f4c-445c-a3e5-4edacfc3591c"
+    ],
+    "budgetMinor": 2500,
+    "unavailableWorkKey": "memory-empire"
+  },
+  {
+    "task": "T03",
+    "tasteIds": [
+      "e12149d8-3108-4019-8881-3f932ab67d38",
+      "df788007-b5ea-4f29-872b-96bcb8eec42f"
+    ],
+    "budgetMinor": 2000,
+    "unavailableWorkKey": "gone-girl"
+  },
+  {
+    "task": "T04",
+    "tasteIds": [
+      "eda54d37-08c7-457d-83f8-1bce21fedc63",
+      "7d903e2f-70ab-44cb-aa88-82501e6d04dd"
+    ],
+    "budgetMinor": 2000,
+    "unavailableWorkKey": "normal-people"
+  },
+  {
+    "task": "T05",
+    "tasteIds": [
+      "057da9d9-399b-437e-8bca-a80e499125ef",
+      "c7ec4ca9-1ccc-4991-b738-55f075441b3f"
+    ],
+    "budgetMinor": 2300,
+    "unavailableWorkKey": "memory-empire"
+  },
+  {
+    "task": "T06",
+    "tasteIds": [
+      "4f8ebd51-46db-4527-bc61-75b56472a50e",
+      "70cae5bf-2f4c-445c-a3e5-4edacfc3591c"
+    ],
+    "budgetMinor": 2000,
+    "unavailableWorkKey": "normal-people"
+  },
+  {
+    "task": "T07",
+    "tasteIds": [
+      "edc327e7-b7ac-4117-8d87-2fc2553e9bf6",
+      "f8167b93-169d-4eec-9cf2-69bbc2a8ac3a"
+    ],
+    "budgetMinor": 1800,
+    "unavailableWorkKey": "priory"
+  },
+  {
+    "task": "T08",
+    "tasteIds": [
+      "55908017-4cfd-4688-9a7e-7b1ff04b171d",
+      "b7a0731f-ec92-496a-9c40-47d9770489b6"
+    ],
+    "budgetMinor": 2200,
+    "unavailableWorkKey": "night-circus"
+  },
+  {
+    "task": "T09",
+    "tasteIds": [
+      "d14f6b3b-5d79-453d-adc6-e657ef049e42",
+      "e12149d8-3108-4019-8881-3f932ab67d38"
+    ],
+    "budgetMinor": 1800,
+    "unavailableWorkKey": "gone-girl"
+  },
+  {
+    "task": "T10",
+    "tasteIds": [
+      "14825893-29a3-4680-b991-c15260a8f44e",
+      "7d903e2f-70ab-44cb-aa88-82501e6d04dd"
+    ],
+    "budgetMinor": 2200,
+    "unavailableWorkKey": "memory-empire"
+  }
+]

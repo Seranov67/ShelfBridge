@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<title>ShelfBridge anonymous review</title>
+<style>
+*{box-sizing:border-box}body{font:16px/1.55 system-ui,sans-serif;color:#153f3a;background:#f7f6f0;margin:0}main{max-width:780px;margin:auto;padding:24px}h1{font-size:1.8rem}h2{font-size:1.4rem}button,select,input{font:inherit;padding:10px;border:1px solid #9ba9a2;border-radius:6px;max-width:100%}button{cursor:pointer;background:#153f3a;color:white}button:disabled{opacity:.5;cursor:default}label{display:block;margin:14px 0}article{background:white;border:1px solid #dce0d8;padding:16px;border-radius:8px;margin:16px 0}article h3{margin:0}#cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}#cards article{margin:0}nav{display:flex;justify-content:space-between;gap:12px;margin:20px 0}fieldset{border:1px solid #ccd2c9;margin:20px 0;padding:16px}#message{min-height:1.5em;font-weight:600}.muted{color:#52645b;font-size:.9rem}input[type=checkbox]{width:20px;height:20px;vertical-align:middle}input[type=number]{width:140px}:focus-visible{outline:3px solid #bc8245;outline-offset:3px}@media(max-width:360px){main{padding:14px}h1{font-size:1.5rem}}
+body{overflow-wrap:anywhere}#cards article{min-width:0}input[type=file]{width:100%}
+</style></head><body><main>
+<h1>ShelfBridge anonymous review</h1>
+<p>Compare gift suggestions for the stated tastes. Prices and stock are simulated. This research does not purchase or reserve books.</p>
+<p class="muted">No network requests. Your answers stay in this page until you download them. Reloading clears unsaved answers. Export partial answers before closing; you can import that file to continue.</p>
+<label><input id="consent" type="checkbox"> I voluntarily agree to provide anonymous ratings for this project.</label>
+<label>Your role <select id="role"><option value="">Choose a role</option><option value="buyer">Gift buyer</option><option value="book_expert">Bookseller / librarian</option></select></label>
+<p id="progress"></p>
+<article aria-labelledby="brief-title"><h2 id="brief-title" tabindex="-1"></h2><p id="brief"></p><p id="repair"></p></article>
+<div id="cards"></div><p id="outcome"></p>
+<label>How relevant is this set as a gift? <select id="rating"><option value="">Skip / cannot assess</option><option value="1">1 — Not relevant</option><option value="2">2 — Slightly relevant</option><option value="3">3 — Moderately relevant</option><option value="4">4 — Relevant</option><option value="5">5 — Very relevant</option></select></label>
+<nav><button id="previous" type="button">Previous</button><button id="next" type="button">Next</button></nav>
+<fieldset id="usability"><legend>Optional: actual app task (gift buyers)</legend><p class="muted">Fill this only after trying the ShelfBridge app. Rating these lists alone does not count as completing the app task.</p>
+<label><input id="observed" type="checkbox"> I tried the app task and will report its outcome.</label>
+<label><input id="completed" type="checkbox"> I completed the gift choice and requested refinement.</label>
+<label><input id="assisted" type="checkbox"> I needed help.</label>
+<label>Elapsed seconds <input id="elapsed" type="number" min="0" max="7200" step="any"></label></fieldset>
+<button id="export" type="button">Download anonymous answers</button>
+<label>Continue from your saved answers <input id="import" type="file" accept="application/json,.json"></label>
+<p id="message" role="status" aria-live="polite"></p>
+<p class="muted" id="participant"></p>
+</main><script>
+const payload=/*BENCHMARK_PAYLOAD*/;
+const {packet,ratingsTemplate}=payload;
+let answers=structuredClone(ratingsTemplate),index=0;
+const $=id=>document.getElementById(id);
+const money=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(n/100);
+function saveRating(){answers.ratings[index].relevance=$('rating').value?Number($('rating').value):null;}
+function render(focus=false){
+  const item=packet.items[index];$('progress').textContent=`Set ${index+1} of ${packet.items.length} · ${answers.ratings.filter(r=>r.relevance!==null).length} rated`;
+  $('brief-title').textContent=`${item.task} · ${item.phase==='initial'?'Original brief':'Updated brief'}`;
+  $('brief').textContent=`Budget ${money(item.brief.budgetMinor)}. Tastes: ${item.brief.tastes.map(t=>`${t.name} (${t.type})`).join(' + ')}. Unavailable: ${item.brief.unavailableTitle||'none'}.`;
+  $('repair').textContent=item.brief.excludedTitles.length?`Already owned / excluded: ${item.brief.excludedTitles.join(', ')}.`:'';
+  $('cards').replaceChildren();for(const card of item.cards){const a=document.createElement('article');for(const [tag,value]of [['h3',card.title],['p',card.author],['p',card.note],['p',`${money(card.priceMinor)} · ${card.format} · ${card.stockCount} in simulated stock`]]){const e=document.createElement(tag);e.textContent=value;a.append(e);}$('cards').append(a);}
+  $('outcome').textContent={ready:'',failed:'This attempt failed. Leave it unrated.',no_eligible_stock:'No books meet these constraints. Leave it unrated.',insufficient_taste_data:'No eligible recommendations were returned. Leave it unrated.'}[item.state];
+  $('rating').disabled=item.state!=='ready';$('rating').value=answers.ratings[index].relevance??'';$('previous').disabled=index===0;$('next').disabled=index===packet.items.length-1;
+  if(focus)$('brief-title').focus();
+}
+function syncFields(){answers.consent=$('consent').checked;answers.role=$('role').value||null;answers.usability=null;if(answers.role==='buyer'&&$('observed').checked){const value=$('elapsed').value,n=Number(value);if(!value||!Number.isFinite(n)||n<0||n>7200)throw Error('Enter elapsed seconds between 0 and 7200, or uncheck the app task report.');answers.usability={completed:$('completed').checked,assisted:$('assisted').checked,elapsedSeconds:n};}}
+function message(text){$('message').textContent=text;}
+$('rating').addEventListener('change',()=>{saveRating();render();});
+for(const [id,step]of [['previous',-1],['next',1]])$(id).addEventListener('click',()=>{saveRating();index+=step;render(true);});
+$('role').addEventListener('change',()=>{$('usability').hidden=$('role').value!=='buyer';});
+$('export').addEventListener('click',()=>{try{saveRating();syncFields();if(!answers.consent||!answers.role)throw Error('Confirm voluntary consent and select your role before exporting.');const url=URL.createObjectURL(new Blob([JSON.stringify(answers,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download=`${packet.participantId}-ratings.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);message('Answers downloaded. Keep this file to resume or share it with the study organizer.');}catch(error){message(error.message);}});
+$('import').addEventListener('change',async()=>{try{const file=$('import').files[0];if(!file||file.size>200000)throw Error();const data=JSON.parse(await file.text());if(data.participantId!==packet.participantId||data.packetFingerprint!==answers.packetFingerprint||typeof data.consent!=='boolean'||![null,'buyer','book_expert'].includes(data.role)||!Array.isArray(data.ratings)||data.ratings.length!==answers.ratings.length)throw Error();const seen=new Set();const ratings=answers.ratings.map(original=>{const r=data.ratings.find(x=>x.blindId===original.blindId),item=packet.items.find(x=>x.blindId===original.blindId);if(!r||seen.has(r.blindId)||(r.relevance!==null&&(!Number.isInteger(r.relevance)||r.relevance<1||r.relevance>5||item.state!=='ready')))throw Error();seen.add(r.blindId);return {blindId:r.blindId,relevance:r.relevance};});const u=data.usability;if(u!==null&&(!u||data.role!=='buyer'||typeof u.completed!=='boolean'||typeof u.assisted!=='boolean'||!Number.isFinite(u.elapsedSeconds)||u.elapsedSeconds<0||u.elapsedSeconds>7200))throw Error();answers={...ratingsTemplate,consent:data.consent,role:data.role,ratings,usability:u};$('consent').checked=answers.consent;$('role').value=answers.role||'';$('usability').hidden=answers.role!=='buyer';$('observed').checked=u!==null;$('completed').checked=!!u?.completed;$('assisted').checked=!!u?.assisted;$('elapsed').value=u?.elapsedSeconds??'';render();message('Saved answers restored.');}catch{message('Could not import: use the original answers file for this participant and packet.');}finally{$('import').value='';}});
+$('participant').textContent=`Anonymous participant: ${packet.participantId}. Methods are hidden. Skipped ratings remain missing in the report.`;$('usability').hidden=true;render();
+</script></body></html>

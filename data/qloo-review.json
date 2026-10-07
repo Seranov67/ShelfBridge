@@ -1,0 +1,815 @@
+{
+  "purpose": "Codex reviewed exact titles, authors, original years and explicit edition/series differences against live Qloo metadata. No human review or recommendation-quality outcome is claimed.",
+  "works": [
+    {
+      "workKey": "piranesi",
+      "title": "Piranesi",
+      "author": "Susanna Clarke",
+      "qlooEntityId": "55908017-4cfd-4688-9a7e-7b1ff04b171d",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "Piranesi",
+        "disambiguation": "2020, Susanna Clarke",
+        "isbn13": "9781635575637",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.840Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "ocean",
+      "title": "The Ocean at the End of the Lane",
+      "author": "Neil Gaiman",
+      "qlooEntityId": "4a176261-3fb2-4479-ba7d-a34dec79aeca",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "The Ocean at the End of the Lane",
+        "disambiguation": "2013, Neil Gaiman",
+        "isbn13": "9780062255662",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "night-circus",
+      "title": "The Night Circus",
+      "author": "Erin Morgenstern",
+      "qlooEntityId": "edb57dbc-e038-48f5-88f5-ea0f5a7e4280",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "The Night Circus",
+        "disambiguation": "2011, Erin Morgenstern",
+        "isbn13": "9780385534635",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "station-eleven",
+      "title": "Station Eleven",
+      "author": "Emily St. John Mandel",
+      "qlooEntityId": "23e536b4-9185-4c01-ae22-2d65a8c9cecc",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "Station Eleven",
+        "disambiguation": "2014, Emily St. John Mandel",
+        "isbn13": "9780385353304",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "left-hand",
+      "title": "The Left Hand of Darkness",
+      "author": "Ursula K. Le Guin",
+      "qlooEntityId": "4d73c871-cc0f-4fc8-88cd-7c59b26e087e",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "The Left Hand of Darkness",
+        "disambiguation": "1969, Ursula K. Le Guin",
+        "isbn13": null,
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "earthsea",
+      "title": "A Wizard of Earthsea",
+      "author": "Ursula K. Le Guin",
+      "qlooEntityId": "edc327e7-b7ac-4117-8d87-2fc2553e9bf6",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "A Wizard of Earthsea (Earthsea Cycle, #1)",
+        "disambiguation": "1968, Ursula K. Le Guin",
+        "isbn13": "9780553383041",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "long-way",
+      "title": "The Long Way to a Small, Angry Planet",
+      "author": "Becky Chambers",
+      "qlooEntityId": "14825893-29a3-4680-b991-c15260a8f44e",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "The Long Way to a Small, Angry Planet (Wayfarers, #1)",
+        "disambiguation": "2014, Becky  Chambers",
+        "isbn13": "9781500453305",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "monk-robot",
+      "title": "A Psalm for the Wild-Built",
+      "author": "Becky Chambers",
+      "qlooEntityId": "09ed9b4f-972f-4b7a-b707-a0ec0140bf56",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "A Psalm for the Wild-Built (Monk &amp; Robot, #1)",
+        "disambiguation": "2021, Becky  Chambers",
+        "isbn13": null,
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "never-let-go",
+      "title": "Never Let Me Go",
+      "author": "Kazuo Ishiguro",
+      "qlooEntityId": "3adbb2a8-6788-4cd9-93c4-417caf2c789b",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "Never Let Me Go",
+        "disambiguation": "2005, Kazuo Ishiguro",
+        "isbn13": "9781400078776",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "klara",
+      "title": "Klara and the Sun",
+      "author": "Kazuo Ishiguro",
+      "qlooEntityId": "504a59ef-54e1-4911-8015-8fa64fc6aa8c",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "Klara and the Sun",
+        "disambiguation": "2021, Kazuo Ishiguro",
+        "isbn13": "9780593318171",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "sea-tranquility",
+      "title": "Sea of Tranquility",
+      "author": "Emily St. John Mandel",
+      "qlooEntityId": "31d394f7-332a-4c5f-95d7-47cf5c1758a0",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "Sea of Tranquility",
+        "disambiguation": "2022, Emily St. John Mandel",
+        "isbn13": "9780593321447",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "cloud-atlas",
+      "title": "Cloud Atlas",
+      "author": "David Mitchell",
+      "qlooEntityId": "66e6ff5b-3dcb-4561-8a28-4fafe10effe0",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "Cloud Atlas",
+        "disambiguation": "2004, David Mitchell",
+        "isbn13": "9780375507250",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "secret-history",
+      "title": "The Secret History",
+      "author": "Donna Tartt",
+      "qlooEntityId": "4862c8c1-0412-4042-bf3e-d56deafef854",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "The Secret History",
+        "disambiguation": "1992, Donna Tartt",
+        "isbn13": "9781400031702",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "thursday",
+      "title": "The Thursday Murder Club",
+      "author": "Richard Osman",
+      "qlooEntityId": "d14f6b3b-5d79-453d-adc6-e657ef049e42",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "The Thursday Murder Club (Thursday Murder Club, #1)",
+        "disambiguation": "2020, Richard Osman",
+        "isbn13": null,
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "orient",
+      "title": "Murder on the Orient Express",
+      "author": "Agatha Christie",
+      "qlooEntityId": "de3e9efa-c76f-4b7b-85a9-c194b36c9c41",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "Murder on the Orient Express (Hercule Poirot, #10)",
+        "disambiguation": "1934, Agatha Christie",
+        "isbn13": "9780007119318",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "rebecca",
+      "title": "Rebecca",
+      "author": "Daphne du Maurier",
+      "qlooEntityId": "3224800a-a757-48cc-8489-bd377f5a43bf",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "Rebecca",
+        "disambiguation": "1938, Daphne du Maurier",
+        "isbn13": "9780316323703",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "evelyn",
+      "title": "The Seven Husbands of Evelyn Hugo",
+      "author": "Taylor Jenkins Reid",
+      "qlooEntityId": "c471e196-f06e-4c78-b723-6dbae7a003b3",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "The Seven Husbands of Evelyn Hugo",
+        "disambiguation": "2017, Taylor Jenkins Reid",
+        "isbn13": "9781501139239",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "tomorrow",
+      "title": "Tomorrow, and Tomorrow, and Tomorrow",
+      "author": "Gabrielle Zevin",
+      "qlooEntityId": "3b2b395b-19e7-4c6c-9c6f-bc6e86cd99ca",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "Tomorrow, and Tomorrow, and Tomorrow",
+        "disambiguation": "2022, Gabrielle Zevin",
+        "isbn13": "9780735243347",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "small-things",
+      "title": "Small Things Like These",
+      "author": "Claire Keegan",
+      "qlooEntityId": "9565f71b-d2dd-4fd2-bebc-c5ffab983539",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "Small Things Like These",
+        "disambiguation": "2021, Claire Keegan",
+        "isbn13": "9780802158741",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "bookshop",
+      "title": "The Bookshop",
+      "author": "Penelope Fitzgerald",
+      "qlooEntityId": "32980050-f6bf-470e-8c13-b2b316cff632",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "The Bookshop",
+        "disambiguation": "1978, Penelope Fitzgerald",
+        "isbn13": "9780547524771",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "dune",
+      "title": "Dune",
+      "author": "Frank Herbert",
+      "qlooEntityId": "9ba85467-2189-46dc-bb98-4b25ee182a9d",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "Dune (Dune, #1)",
+        "disambiguation": "1965, Frank Herbert",
+        "isbn13": "9780593099322",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "hitchhiker",
+      "title": "The Hitchhiker’s Guide to the Galaxy",
+      "author": "Douglas Adams",
+      "qlooEntityId": "a4ee8ba6-00c8-492f-ad74-1dbd85dc91f7",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "The Hitchhiker’s Guide to the Galaxy (Hitchhiker's Guide to the Galaxy, #1)",
+        "disambiguation": "1979, Douglas Adams",
+        "isbn13": null,
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the first novel, not the omnibus returned above it."
+    },
+    {
+      "workKey": "hobbit",
+      "title": "The Hobbit",
+      "author": "J. R. R. Tolkien",
+      "qlooEntityId": "881d224a-c331-4b87-975b-8fa0546391d3",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "The Hobbit, or There and Back Again",
+        "disambiguation": "1937, J.R.R. Tolkien",
+        "isbn13": "9780618260300",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected Tolkien novel, not the Chuck Dixon graphic adaptation."
+    },
+    {
+      "workKey": "invisible-cities",
+      "title": "Invisible Cities",
+      "author": "Italo Calvino",
+      "qlooEntityId": "1feaadcd-e6c3-456d-8ffa-7c1dff5a4189",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "Invisible Cities",
+        "disambiguation": "1972, Italo Calvino",
+        "isbn13": "9780156453806",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "priory",
+      "title": "The Priory of the Orange Tree",
+      "author": "Samantha Shannon",
+      "qlooEntityId": null,
+      "identityReviewed": false,
+      "reviewNote": "No matching candidate in the bounded search. Zero stock; excluded from the eligible shelf. Identity remains unresolved."
+    },
+    {
+      "workKey": "memory-empire",
+      "title": "A Memory Called Empire",
+      "author": "Arkady Martine",
+      "qlooEntityId": "20678214-30d0-4e49-aca3-dc20f741b8de",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "A Memory Called Empire (Teixcalaan, #1)",
+        "disambiguation": "2019, Arkady Martine",
+        "isbn13": "9781529001587",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "gone-girl",
+      "title": "Gone Girl",
+      "author": "Gillian Flynn",
+      "qlooEntityId": "4da76081-4757-4d70-8586-4be0b506bdb7",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "Gone Girl",
+        "disambiguation": "2012, Gillian Flynn",
+        "isbn13": "9780307588371",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "normal-people",
+      "title": "Normal People",
+      "author": "Sally Rooney",
+      "qlooEntityId": "28d688c4-0760-4042-bec1-f6ee75e71cc7",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "Normal People",
+        "disambiguation": "2018, Sally Rooney",
+        "isbn13": "9781984822178",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.841Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "little-prince",
+      "title": "The Little Prince",
+      "author": "Antoine de Saint-Exupéry",
+      "qlooEntityId": "ef9fe530-a3e4-44eb-b593-cd150b81d36e",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "The Little Prince",
+        "disambiguation": "1943, Antoine de Saint-Exupéry",
+        "isbn13": "9780152023980",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.843Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    },
+    {
+      "workKey": "martian",
+      "title": "The Martian",
+      "author": "Andy Weir",
+      "qlooEntityId": "69af3126-e4c2-47ed-8e6e-a5bd6dd073eb",
+      "identityReviewed": true,
+      "evidence": {
+        "qlooName": "The Martian",
+        "disambiguation": "2011, Andy Weir",
+        "isbn13": "9780804139021",
+        "releaseYear": null,
+        "source": "live_qloo_cli",
+        "checkedAt": "2026-10-06T15:44:29.843Z"
+      },
+      "reviewNote": "Selected the matching work and author; alternate editions and unrelated homonyms were rejected."
+    }
+  ],
+  "profiles": [
+    {
+      "task": "T01",
+      "tastes": [
+        {
+          "query": "Amélie",
+          "type": "movie",
+          "qlooEntityId": "b7a0731f-ec92-496a-9c40-47d9770489b6",
+          "identityReviewed": true,
+          "evidence": {
+            "qlooName": "Amélie",
+            "disambiguation": "2001",
+            "isbn13": null,
+            "releaseYear": 2001,
+            "source": "live_qloo_cli",
+            "checkedAt": "2026-10-06T15:44:29.843Z"
+          }
+        },
+        {
+          "query": "AURORA",
+          "type": "artist",
+          "qlooEntityId": "f8167b93-169d-4eec-9cf2-69bbc2a8ac3a",
+          "identityReviewed": true,
+          "evidence": {
+            "qlooName": "Aurora Aksnes",
+            "disambiguation": "Aurora Aksnes",
+            "isbn13": null,
+            "releaseYear": null,
+            "source": "live_qloo_cli",
+            "checkedAt": "2026-10-06T15:44:29.843Z",
+            "searchQuery": "Aurora Aksnes",
+            "identitySource": "https://musicbrainz.org/artist/484a4e90-6899-4e4b-a948-a2255d365340"
+          },
+          "reviewNote": "Norwegian singer Aurora Aksnes. Rejected Aurora entity 28e5daa9-7a37-44fd-8d9e-a5abeb6b6469: its MusicBrainz ID identifies Leanna Milward, despite conflicting Qloo description."
+        }
+      ]
+    },
+    {
+      "task": "T02",
+      "tastes": [
+        {
+          "query": "Arrival",
+          "type": "movie",
+          "qlooEntityId": "c7ec4ca9-1ccc-4991-b738-55f075441b3f",
+          "identityReviewed": true,
+          "evidence": {
+            "qlooName": "Arrival",
+            "disambiguation": "2016",
+            "isbn13": null,
+            "releaseYear": 2016,
+            "source": "live_qloo_cli",
+            "checkedAt": "2026-10-06T15:44:29.843Z"
+          }
+        },
+        {
+          "query": "Radiohead",
+          "type": "artist",
+          "qlooEntityId": "70cae5bf-2f4c-445c-a3e5-4edacfc3591c",
+          "identityReviewed": true,
+          "evidence": {
+            "qlooName": "Radiohead",
+            "disambiguation": "Radiohead",
+            "isbn13": null,
+            "releaseYear": null,
+            "source": "live_qloo_cli",
+            "checkedAt": "2026-10-06T15:44:29.843Z"
+          }
+        }
+      ]
+    },
+    {
+      "task": "T03",
+      "tastes": [
+        {
+          "query": "Knives Out",
+          "type": "movie",
+          "qlooEntityId": "e12149d8-3108-4019-8881-3f932ab67d38",
+          "identityReviewed": true,
+          "evidence": {
+            "qlooName": "Knives Out",
+            "disambiguation": "2019",
+            "isbn13": null,
+            "releaseYear": 2019,
+            "source": "live_qloo_cli",
+            "checkedAt": "2026-10-06T15:44:29.843Z"
+          }
+        },
+        {
+          "query": "The Grand Budapest Hotel",
+          "type": "movie",
+          "qlooEntityId": "df788007-b5ea-4f29-872b-96bcb8eec42f",
+          "identityReviewed": true,
+          "evidence": {
+            "qlooName": "The Grand Budapest Hotel",
+            "disambiguation": "2014",
+            "isbn13": null,
+            "releaseYear": 2014,
+            "source": "live_qloo_cli",
+            "checkedAt": "2026-10-06T15:44:29.843Z"
+          }
+        }
+      ]
+    },
+    {
+      "task": "T04",
+      "tastes": [
+        {
+          "query": "Before Sunrise",
+          "type": "movie",
+          "qlooEntityId": "eda54d37-08c7-457d-83f8-1bce21fedc63",
+          "identityReviewed": true,
+          "evidence": {
+            "qlooName": "Before Sunrise",
+            "disambiguation": "1995",
+            "isbn13": null,
+            "releaseYear": 1995,
+            "source": "live_qloo_cli",
+            "checkedAt": "2026-10-06T15:44:29.844Z"
+          }
+        },
+        {
+          "query": "Hozier",
+          "type": "artist",
+          "qlooEntityId": "7d903e2f-70ab-44cb-aa88-82501e6d04dd",
+          "identityReviewed": true,
+          "evidence": {
+            "qlooName": "Hozier",
+            "disambiguation": "Hozier",
+            "isbn13": null,
+            "releaseYear": null,
+            "source": "live_qloo_cli",
+            "checkedAt": "2026-10-06T15:44:29.844Z"
+          }
+        }
+      ]
+    },
+    {
+      "task": "T05",
+      "tastes": [
+        {
+          "query": "Interstellar",
+          "type": "movie",
+          "qlooEntityId": "057da9d9-399b-437e-8bca-a80e499125ef",
+          "identityReviewed": true,
+          "evidence": {
+            "qlooName": "Interstellar",
+            "disambiguation": "2014",
+            "isbn13": null,
+            "releaseYear": 2014,
+            "source": "live_qloo_cli",
+            "checkedAt": "2026-10-06T15:44:29.844Z"
+          }
+        },
+        {
+          "query": "Arrival",
+          "type": "movie",
+          "qlooEntityId": "c7ec4ca9-1ccc-4991-b738-55f075441b3f",
+          "identityReviewed": true,
+          "evidence": {
+            "qlooName": "Arrival",
+            "disambiguation": "2016",
+            "isbn13": null,
+            "releaseYear": 2016,
+            "source": "live_qloo_cli",
+            "checkedAt": "2026-10-06T15:44:29.844Z"
+          }
+        }
+      ]
+    },
+    {
+      "task": "T06",
+      "tastes": [
+        {
+          "query": "Her",
+          "type": "movie",
+          "qlooEntityId": "4f8ebd51-46db-4527-bc61-75b56472a50e",
+          "identityReviewed": true,
+          "evidence": {
+            "qlooName": "Her",
+            "disambiguation": "2013",
+            "isbn13": null,
+            "releaseYear": 2013,
+            "source": "live_qloo_cli",
+            "checkedAt": "2026-10-06T15:44:29.844Z"
+          }
+        },
+        {
+          "query": "Radiohead",
+          "type": "artist",
+          "qlooEntityId": "70cae5bf-2f4c-445c-a3e5-4edacfc3591c",
+          "identityReviewed": true,
+          "evidence": {
+            "qlooName": "Radiohead",
+            "disambiguation": "Radiohead",
+            "isbn13": null,
+            "releaseYear": null,
+            "source": "live_qloo_cli",
+            "checkedAt": "2026-10-06T15:44:29.844Z"
+          }
+        }
+      ]
+    },
+    {
+      "task": "T07",
+      "tastes": [
+        {
+          "query": "A Wizard of Earthsea",
+          "type": "book",
+          "qlooEntityId": "edc327e7-b7ac-4117-8d87-2fc2553e9bf6",
+          "identityReviewed": true,
+          "evidence": {
+            "qlooName": "A Wizard of Earthsea (Earthsea Cycle, #1)",
+            "disambiguation": "1968, Ursula K. Le Guin",
+            "isbn13": "9780553383041",
+            "releaseYear": null,
+            "source": "live_qloo_cli",
+            "checkedAt": "2026-10-06T15:44:29.844Z"
+          }
+        },
+        {
+          "query": "AURORA",
+          "type": "artist",
+          "qlooEntityId": "f8167b93-169d-4eec-9cf2-69bbc2a8ac3a",
+          "identityReviewed": true,
+          "evidence": {
+            "qlooName": "Aurora Aksnes",
+            "disambiguation": "Aurora Aksnes",
+            "isbn13": null,
+            "releaseYear": null,
+            "source": "live_qloo_cli",
+            "checkedAt": "2026-10-06T15:44:29.844Z",
+            "searchQuery": "Aurora Aksnes",
+            "identitySource": "https://musicbrainz.org/artist/484a4e90-6899-4e4b-a948-a2255d365340"
+          },
+          "reviewNote": "Norwegian singer Aurora Aksnes. Rejected Aurora entity 28e5daa9-7a37-44fd-8d9e-a5abeb6b6469: its MusicBrainz ID identifies Leanna Milward, despite conflicting Qloo description."
+        }
+      ]
+    },
+    {
+      "task": "T08",
+      "tastes": [
+        {
+          "query": "Piranesi",
+          "type": "book",
+          "qlooEntityId": "55908017-4cfd-4688-9a7e-7b1ff04b171d",
+          "identityReviewed": true,
+          "evidence": {
+            "qlooName": "Piranesi",
+            "disambiguation": "2020, Susanna Clarke",
+            "isbn13": "9781635575637",
+            "releaseYear": null,
+            "source": "live_qloo_cli",
+            "checkedAt": "2026-10-06T15:44:29.844Z"
+          }
+        },
+        {
+          "query": "Amélie",
+          "type": "movie",
+          "qlooEntityId": "b7a0731f-ec92-496a-9c40-47d9770489b6",
+          "identityReviewed": true,
+          "evidence": {
+            "qlooName": "Amélie",
+            "disambiguation": "2001",
+            "isbn13": null,
+            "releaseYear": 2001,
+            "source": "live_qloo_cli",
+            "checkedAt": "2026-10-06T15:44:29.844Z"
+          }
+        }
+      ]
+    },
+    {
+      "task": "T09",
+      "tastes": [
+        {
+          "query": "The Thursday Murder Club",
+          "type": "book",
+          "qlooEntityId": "d14f6b3b-5d79-453d-adc6-e657ef049e42",
+          "identityReviewed": true,
+          "evidence": {
+            "qlooName": "The Thursday Murder Club (Thursday Murder Club, #1)",
+            "disambiguation": "2020, Richard Osman",
+            "isbn13": null,
+            "releaseYear": null,
+            "source": "live_qloo_cli",
+            "checkedAt": "2026-10-06T15:44:29.844Z"
+          }
+        },
+        {
+          "query": "Knives Out",
+          "type": "movie",
+          "qlooEntityId": "e12149d8-3108-4019-8881-3f932ab67d38",
+          "identityReviewed": true,
+          "evidence": {
+            "qlooName": "Knives Out",
+            "disambiguation": "2019",
+            "isbn13": null,
+            "releaseYear": 2019,
+            "source": "live_qloo_cli",
+            "checkedAt": "2026-10-06T15:44:29.844Z"
+          }
+        }
+      ]
+    },
+    {
+      "task": "T10",
+      "tastes": [
+        {
+          "query": "The Long Way to a Small, Angry Planet",
+          "type": "book",
+          "qlooEntityId": "14825893-29a3-4680-b991-c15260a8f44e",
+          "identityReviewed": true,
+          "evidence": {
+            "qlooName": "The Long Way to a Small, Angry Planet (Wayfarers, #1)",
+            "disambiguation": "2014, Becky  Chambers",
+            "isbn13": "9781500453305",
+            "releaseYear": null,
+            "source": "live_qloo_cli",
+            "checkedAt": "2026-10-06T15:44:29.844Z"
+          }
+        },
+        {
+          "query": "Hozier",
+          "type": "artist",
+          "qlooEntityId": "7d903e2f-70ab-44cb-aa88-82501e6d04dd",
+          "identityReviewed": true,
+          "evidence": {
+            "qlooName": "Hozier",
+            "disambiguation": "Hozier",
+            "isbn13": null,
+            "releaseYear": null,
+            "source": "live_qloo_cli",
+            "checkedAt": "2026-10-06T15:44:29.844Z"
+          }
+        }
+      ]
+    }
+  ]
+}

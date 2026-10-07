@@ -1,0 +1,387 @@
+{
+  "purpose": "Manual identity review; null IDs are deliberately unresolved. This is not qloo-mapping.json.",
+  "works": [
+    {
+      "workKey": "piranesi",
+      "title": "Piranesi",
+      "author": "Susanna Clarke",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "ocean",
+      "title": "The Ocean at the End of the Lane",
+      "author": "Neil Gaiman",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "night-circus",
+      "title": "The Night Circus",
+      "author": "Erin Morgenstern",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "station-eleven",
+      "title": "Station Eleven",
+      "author": "Emily St. John Mandel",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "left-hand",
+      "title": "The Left Hand of Darkness",
+      "author": "Ursula K. Le Guin",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "earthsea",
+      "title": "A Wizard of Earthsea",
+      "author": "Ursula K. Le Guin",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "long-way",
+      "title": "The Long Way to a Small, Angry Planet",
+      "author": "Becky Chambers",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "monk-robot",
+      "title": "A Psalm for the Wild-Built",
+      "author": "Becky Chambers",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "never-let-go",
+      "title": "Never Let Me Go",
+      "author": "Kazuo Ishiguro",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "klara",
+      "title": "Klara and the Sun",
+      "author": "Kazuo Ishiguro",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "sea-tranquility",
+      "title": "Sea of Tranquility",
+      "author": "Emily St. John Mandel",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "cloud-atlas",
+      "title": "Cloud Atlas",
+      "author": "David Mitchell",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "secret-history",
+      "title": "The Secret History",
+      "author": "Donna Tartt",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "thursday",
+      "title": "The Thursday Murder Club",
+      "author": "Richard Osman",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "orient",
+      "title": "Murder on the Orient Express",
+      "author": "Agatha Christie",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "rebecca",
+      "title": "Rebecca",
+      "author": "Daphne du Maurier",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "evelyn",
+      "title": "The Seven Husbands of Evelyn Hugo",
+      "author": "Taylor Jenkins Reid",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "tomorrow",
+      "title": "Tomorrow, and Tomorrow, and Tomorrow",
+      "author": "Gabrielle Zevin",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "small-things",
+      "title": "Small Things Like These",
+      "author": "Claire Keegan",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "bookshop",
+      "title": "The Bookshop",
+      "author": "Penelope Fitzgerald",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "dune",
+      "title": "Dune",
+      "author": "Frank Herbert",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "hitchhiker",
+      "title": "The Hitchhiker’s Guide to the Galaxy",
+      "author": "Douglas Adams",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "hobbit",
+      "title": "The Hobbit",
+      "author": "J. R. R. Tolkien",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "invisible-cities",
+      "title": "Invisible Cities",
+      "author": "Italo Calvino",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "priory",
+      "title": "The Priory of the Orange Tree",
+      "author": "Samantha Shannon",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "memory-empire",
+      "title": "A Memory Called Empire",
+      "author": "Arkady Martine",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "gone-girl",
+      "title": "Gone Girl",
+      "author": "Gillian Flynn",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "normal-people",
+      "title": "Normal People",
+      "author": "Sally Rooney",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "little-prince",
+      "title": "The Little Prince",
+      "author": "Antoine de Saint-Exupéry",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    },
+    {
+      "workKey": "martian",
+      "title": "The Martian",
+      "author": "Andy Weir",
+      "qlooEntityId": null,
+      "identityReviewed": false
+    }
+  ],
+  "profiles": [
+    {
+      "task": "T01",
+      "tastes": [
+        {
+          "query": "Amélie",
+          "type": "movie",
+          "qlooEntityId": null,
+          "identityReviewed": false
+        },
+        {
+          "query": "AURORA",
+          "type": "artist",
+          "qlooEntityId": null,
+          "identityReviewed": false
+        }
+      ]
+    },
+    {
+      "task": "T02",
+      "tastes": [
+        {
+          "query": "Arrival",
+          "type": "movie",
+          "qlooEntityId": null,
+          "identityReviewed": false
+        },
+        {
+          "query": "Radiohead",
+          "type": "artist",
+          "qlooEntityId": null,
+          "identityReviewed": false
+        }
+      ]
+    },
+    {
+      "task": "T03",
+      "tastes": [
+        {
+          "query": "Knives Out",
+          "type": "movie",
+          "qlooEntityId": null,
+          "identityReviewed": false
+        },
+        {
+          "query": "The Grand Budapest Hotel",
+          "type": "movie",
+          "qlooEntityId": null,
+          "identityReviewed": false
+        }
+      ]
+    },
+    {
+      "task": "T04",
+      "tastes": [
+        {
+          "query": "Before Sunrise",
+          "type": "movie",
+          "qlooEntityId": null,
+          "identityReviewed": false
+        },
+        {
+          "query": "Hozier",
+          "type": "artist",
+          "qlooEntityId": null,
+          "identityReviewed": false
+        }
+      ]
+    },
+    {
+      "task": "T05",
+      "tastes": [
+        {
+          "query": "Interstellar",
+          "type": "movie",
+          "qlooEntityId": null,
+          "identityReviewed": false
+        },
+        {
+          "query": "Arrival",
+          "type": "movie",
+          "qlooEntityId": null,
+          "identityReviewed": false
+        }
+      ]
+    },
+    {
+      "task": "T06",
+      "tastes": [
+        {
+          "query": "Her",
+          "type": "movie",
+          "qlooEntityId": null,
+          "identityReviewed": false
+        },
+        {
+          "query": "Radiohead",
+          "type": "artist",
+          "qlooEntityId": null,
+          "identityReviewed": false
+        }
+      ]
+    },
+    {
+      "task": "T07",
+      "tastes": [
+        {
+          "query": "A Wizard of Earthsea",
+          "type": "book",
+          "qlooEntityId": null,
+          "identityReviewed": false
+        },
+        {
+          "query": "AURORA",
+          "type": "artist",
+          "qlooEntityId": null,
+          "identityReviewed": false
+        }
+      ]
+    },
+    {
+      "task": "T08",
+      "tastes": [
+        {
+          "query": "Piranesi",
+          "type": "book",
+          "qlooEntityId": null,
+          "identityReviewed": false
+        },
+        {
+          "query": "Amélie",
+          "type": "movie",
+          "qlooEntityId": null,
+          "identityReviewed": false
+        }
+      ]
+    },
+    {
+      "task": "T09",
+      "tastes": [
+        {
+          "query": "The Thursday Murder Club",
+          "type": "book",
+          "qlooEntityId": null,
+          "identityReviewed": false
+        },
+        {
+          "query": "Knives Out",
+          "type": "movie",
+          "qlooEntityId": null,
+          "identityReviewed": false
+        }
+      ]
+    },
+    {
+      "task": "T10",
+      "tastes": [
+        {
+          "query": "The Long Way to a Small, Angry Planet",
+          "type": "book",
+          "qlooEntityId": null,
+          "identityReviewed": false
+        },
+        {
+          "query": "Hozier",
+          "type": "artist",
+          "qlooEntityId": null,
+          "identityReviewed": false
+        }
+      ]
+    }
+  ]
+}

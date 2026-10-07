@@ -1,0 +1,8 @@
+# Prepared Windows workstation; adjust absolute paths for another checkout.
+# Start the verified Qloo-only HTTP server separately. No provider keys here.
+[mcp_servers.shelfbridge]
+command = 'D:\ShelfBridge\.tools\node\node.exe'
+args = ['D:\ShelfBridge\scripts\mcp-server.mjs']
+cwd = 'D:\ShelfBridge'
+startup_timeout_sec = 10
+tool_timeout_sec = 30

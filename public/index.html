@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#173c38"><title>ShelfBridge — A gift, still personal</title><link rel="stylesheet" href="/style.css"><script type="module" src="/app.js"></script></head>
+<body>
+  <header class="topbar"><a class="brand" href="/" aria-label="ShelfBridge home"><span class="brand-icon" aria-hidden="true">▥</span> ShelfBridge</a><span class="topnote">THE INDEPENDENT BOOKSELLER’S COMPANION</span><span class="source-badge" id="mode">Loading source…</span></header>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy"><p class="eyebrow">OUT OF STOCK. NOT OUT OF IDEAS.</p><h1 id="hero-title">A different book.<br><em>The same thoughtfulness.</em></h1><p class="intro">Turn the films, music and books they love into a gift you can actually find on the shelf.</p><button id="sample" class="primary">Try a gift rescue <span aria-hidden="true">↗</span></button><span class="sample-note">A ready-to-review brief. No account needed.</span></div>
+      <div class="hero-art" aria-hidden="true"><div class="orbit">TASTE → SHELF → GIFT</div><div class="book hero-book"><span>SUSANNA<br>CLARKE</span><strong>Piranesi</strong><div class="arch"></div><small>A WORLD WAITING<br>TO BE DISCOVERED</small></div><div class="little-note">The gift changes.<br>The care stays.</div><span class="art-caption">ORIGINAL TYPOGRAPHIC DEMO COVER</span></div>
+    </section>
+    <div class="inventory-note"><span aria-hidden="true">◈</span><p><strong>A small shelf. A clear promise.</strong> Demo inventory — prices, formats and stock are simulated. No purchase or reservation is made.</p><button id="shelf-toggle" class="text-button" aria-expanded="false" aria-controls="shelf">View the shelf <span aria-hidden="true">↗</span></button></div>
+    <section id="shelf" class="shelf hidden" aria-label="Demo book inventory"><h2>Our demo shelf</h2><p id="stock-date"></p><div id="shelf-list"></div></section>
+    <div class="workflow" aria-label="Gift rescue steps"><span class="active"><b>01</b> The person</span><span><b>02</b> The possibilities</span><span><b>03</b> The gift</span></div>
+    <section class="workspace" aria-label="Gift rescue workspace">
+      <aside class="brief"><p class="eyebrow">START WITH THE PERSON</p><h2>The gift brief</h2><p class="muted">Their taste is the thread. Availability is the boundary.</p>
+        <form id="brief-form">
+          <label for="unavailable">The book you couldn’t find <span class="optional">optional</span></label><select id="unavailable"><option value="">Start from their tastes instead</option></select><p class="hint">This book is excluded, not assumed to be their taste.</p>
+          <label for="budget">Maximum budget <span class="optional">USD</span></label><div class="money-input"><span>$</span><input id="budget" type="number" min="1" max="1000" step="0.01" value="25" required></div>
+          <label for="taste-query">What do they love?</label><div class="search-line"><select id="taste-type" aria-label="Type of taste"><option value="movie">Film</option><option value="artist">Artist</option><option value="book">Book</option></select><input id="taste-query" maxlength="100" placeholder="Try Amélie" autocomplete="off"><button type="button" id="search" aria-label="Search cultural tastes">↗</button></div><p class="hint">Search, then select the exact match. Up to 3 tastes. For the Norwegian singer AURORA, search “Aurora Aksnes”.</p>
+          <div id="search-results" aria-live="polite"></div><div id="tastes" class="tastes"></div><p id="exclusions" class="hint hidden"></p>
+          <label for="priority">Preserve one taste especially? <span class="optional">optional</span></label><select id="priority"><option value="">Keep all confirmed tastes together</option></select><p class="hint">Selecting one explicitly allows a focused query.</p>
+          <button type="submit" id="generate" class="primary wide">Find the thoughtful alternative <span aria-hidden="true">→</span></button><p class="hint confirmation">By continuing, you confirm these are the recipient’s tastes.</p>
+        </form>
+      </aside>
+      <div class="results-panel"><div class="result-heading"><div><p class="eyebrow">A LITTLE DISCOVERY, WITHIN REACH</p><h2 id="results-title">Their next favourite could be here.</h2></div><span id="result-count" class="count-badge">3 thoughtful possibilities</span></div>
+        <div id="status" role="status" aria-live="polite"></div>
+        <div id="empty" class="empty"><div class="empty-books" aria-hidden="true"><span></span><span></span><span></span></div><h3>A good gift starts with a good detail.</h3><p>Add something they love and a budget.<br>We’ll look only at books on the demo shelf.</p><div class="promise"><span>✓ In stock</span><span>✓ Within budget</span><span>✓ Traceable choice</span></div></div>
+        <div id="diff" class="diff hidden"></div><div id="cards" class="cards"></div>
+        <div id="refine-bar" class="refine-bar hidden"><div><strong>A smaller budget?</strong><p id="refinements-note">Confirm a new limit and rebuild the shortlist.</p></div><label class="sr-only" for="new-budget">New lower budget in USD</label><div class="money-input"><span>$</span><input type="number" id="new-budget" min="1" step="0.01" value="18"></div><button id="lower-budget" class="secondary">Rebuild</button></div>
+        <details id="evidence" class="evidence hidden"><summary>Why these choices? <span>Source & decision trail</span></summary><div id="evidence-content"></div></details>
+      </div>
+    </section>
+    <footer><span class="brand small">▥ ShelfBridge</span><p>When the perfect gift is out of stock, preserve the person’s taste.</p><span>Made for thoughtful alternatives.</span></footer>
+  </main>
+  <dialog id="confirm-dialog" aria-labelledby="confirm-title" aria-describedby="confirm-text"><form method="dialog"><p class="eyebrow">ONE CHANGE, CLEARLY CONFIRMED</p><h2 id="confirm-title">Rebuild the shortlist?</h2><p id="confirm-text"></p><div class="dialog-actions"><button value="cancel" class="secondary">Keep this selection</button><button value="confirm" class="primary">Confirm & rebuild</button></div></form></dialog>
+  <dialog id="gift-dialog" aria-label="Gift card"><div class="gift-head"><p class="eyebrow">A BOOK, CHOSEN WITH CARE</p><button id="close-gift" class="text-button" aria-label="Close gift card">✕</button></div><div id="gift-content"></div><div class="dialog-actions"><button id="copy-gift" class="secondary">Copy gift note</button><button id="print-gift" class="primary">Print card</button></div><p id="copy-status" role="status"></p></dialog>
+</body></html>

@@ -1,0 +1,39 @@
+{
+  "name": "shelfbridge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/server.mjs",
+    "test": "node --test test/*.test.mjs",
+    "test:browser": "node scripts/browser-check.mjs",
+    "test:browser:qloo": "node scripts/qloo-only-browser-check.mjs",
+    "mcp": "node scripts/mcp-server.mjs",
+    "test:mcp": "node scripts/mcp-check.mjs",
+    "smoke:mcp": "node scripts/mcp-check.mjs --live",
+    "runtime:check": "node scripts/runtime-check.mjs",
+    "demo:record": "node scripts/record-demo.mjs",
+    "probe": "node --env-file-if-exists=.env scripts/probe.mjs",
+    "preflight": "node --env-file-if-exists=.env scripts/preflight.mjs",
+    "preflight:qloo": "node --env-file-if-exists=.env scripts/preflight.mjs --qloo-only",
+    "preflight:live": "node --env-file-if-exists=.env scripts/preflight.mjs --full-live",
+    "smoke:qloo": "node --env-file-if-exists=.env scripts/qloo-only-smoke.mjs",
+    "enable:qloo": "node --env-file-if-exists=.env scripts/enable-live.mjs --qloo-only",
+    "smoke:llm": "node --env-file-if-exists=.env scripts/llm-smoke.mjs",
+    "smoke:live": "node --env-file-if-exists=.env scripts/live-smoke.mjs",
+    "enable:live": "node --env-file-if-exists=.env scripts/enable-live.mjs",
+    "evaluate:fixture": "node scripts/evaluate-fixture.mjs",
+    "benchmark": "node --env-file-if-exists=.env scripts/benchmark.mjs",
+    "benchmark:collect": "node --env-file-if-exists=.env scripts/collect-benchmark.mjs",
+    "test:benchmark-browser": "node scripts/benchmark-browser-check.mjs",
+    "mapping:compile": "node scripts/compile-review.mjs",
+    "qloo:p00": "node --env-file-if-exists=.env scripts/qloo-p00.mjs",
+    "qloo:doctor": "node scripts/qloo-doctor.mjs",
+    "qloo:discover": "node --env-file-if-exists=.env scripts/qloo-discover.mjs",
+    "test:cli": "node scripts/qloo-cli-check.mjs"
+  },
+  "license": "MIT"
+}
