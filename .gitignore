@@ -6,3 +6,5 @@ node_modules/
 .runtime/
 test-results/
 .vercel/
+.agents/
+skills-lock.json
