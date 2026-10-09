@@ -4,8 +4,9 @@ Preparation draft, updated 9 October 2026. Qloo-only is the primary mode;
 OpenAI access is not needed for this release. The public demo is
 [shelfbridge.vercel.app](https://shelfbridge.vercel.app). Current real Qloo controls
 and both local and public deterministic Qloo-only HTTP journeys passed on
-9 October. Prepared source commits still need publication to the designated
-repository; see [validation](VALIDATION.md) for publication status.
+9 October. Prepared source is public in
+[Seranov67/ShelfBridge](https://github.com/Seranov67/ShelfBridge), with passing
+GitHub Actions. See [validation](VALIDATION.md) for release status.
 The MCP tool interface passed a real Qloo protocol check; an external LLM agent
 run remains unverified. Review the status before submitting.
 
@@ -109,8 +110,8 @@ what the system has established and what remains a hypothesis.
 
 ## What's next
 
-Publish the prepared source to the designated open-source repository, record
-the verified public Qloo-only demo, demonstrate MCP in an existing agent, and collect independent
+Record the verified public Qloo-only demo, demonstrate MCP in an existing agent,
+and collect independent
 gift-buyer and bookseller feedback. See [deployment instructions](DEPLOYMENT.md).
 A planned B0/B1/B2/Full comparison will examine whether the bounded agent adds
 value over deterministic ordering and direct Qloo ranking.
@@ -127,12 +128,11 @@ experimental mode implements the OpenAI Responses API.
 - Local prototype: http://127.0.0.1:4318/ (not accessible to remote judges).
 - [Public live demo](https://shelfbridge.vercel.app).
 - [Designated source repository](https://github.com/Seranov67/ShelfBridge);
-  current source synchronization is pending. The project license is MIT.
+  published source and passing GitHub Actions. The project license is MIT.
 - [English judging instructions](JUDGING.md).
 - [English demo script and captions](DEMO.md).
 
-Before submitting, replace pending links with verified public URLs, record the
-verified live build and update the evidence. The
+Before submitting, record the verified live build and review the dated evidence. The
 [official rules](https://qloo.devpost.com/rules) require a functional demo link,
 a public open-source repository, a project description and English submission
 materials or translations. Access must remain available through judging.

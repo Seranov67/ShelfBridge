@@ -5,9 +5,14 @@
 [ShelfBridge](https://shelfbridge.vercel.app) is public and runs the complete
 Qloo-only application on Vercel with shared Upstash Redis state. The release
 was built from local commit `f1ab60cf9b7211d2174d24183c3f595b422fd62c` and promoted
-as deployment `dpl_GwK6TVQGqwTE9SbqsuPNcwaarrSj`. Publication of the prepared
-commits to `Seranov67/ShelfBridge` still requires authenticated write access;
-the site was deployed directly through the authorized Vercel CLI.
+as deployment `dpl_GwK6TVQGqwTE9SbqsuPNcwaarrSj`. The prepared source was published
+to [Seranov67/ShelfBridge](https://github.com/Seranov67/ShelfBridge) through
+authenticated GitHub CLI as Seranov67. GitHub Actions passed for commit
+`669f2d0ff417e76a32431530053f1f57634ef0f7`, including Node/Redis tests, the
+controlled MCP journey and the Vercel build. The initial site release used
+the authorized Vercel CLI. After the owner approved adding ShelfBridge to the
+existing Vercel GitHub App's selected repositories, Vercel confirmed the
+connection to this exact repository for automatic Git deployments.
 
 Fresh real Qloo P00 controls passed **13/13**, with **10/10 nonempty profiles**.
 The current local HTTP journey passed **8/8**, using five Qloo calls and no

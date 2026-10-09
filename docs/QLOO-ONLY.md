@@ -101,8 +101,8 @@ The Qloo-only report has `qlooOnlyEndToEndVerified=true` and
 `liveEndToEndVerified=false`. It cannot activate the Qloo + OpenAI mode or be
 counted as a successful LLM comparison. The later [MCP tool pass](AGENT-MCP.md)
 verified real Qloo over stdio, with no OpenAI. An external LLM agent run,
-independent human ratings and current source publication remain separate work.
-Public HTTPS hosting is now verified. The English recording still shows the
+and independent human ratings remain separate work. Current source is public
+in Seranov67/ShelfBridge and public HTTPS hosting is verified. The English recording still shows the
 offline fixture.
 
 ## Switch modes

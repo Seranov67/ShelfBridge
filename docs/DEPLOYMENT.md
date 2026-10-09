@@ -7,6 +7,9 @@ The browser UI and Node API run in one Vercel project. Shared state uses
 required. MCP remains a six-tool stdio interface on the agent's computer and
 can call the published HTTPS API. The public HTTP journey passed eight checks
 with five Qloo reservations and no OpenAI calls. See [validation](VALIDATION.md).
+The `shelfbridge` Vercel project is connected to
+`https://github.com/Seranov67/ShelfBridge`; the production branch is `main`.
+Provider credentials remain in Vercel environment variables, separate from Git.
 
 ```text
 Browser → Vercel HTTPS → static UI
