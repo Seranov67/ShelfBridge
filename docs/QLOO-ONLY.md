@@ -2,8 +2,10 @@
 
 Updated 9 October 2026. Qloo-only is the primary application and Docker mode.
 The configured interface says **Live Qloo · no LLM · demo inventory**.
-The current checkout needs credentials, the supported harness and fresh live
-evidence; previous workstation activation is historical, not a current guarantee.
+The current release is public at [shelfbridge.vercel.app](https://shelfbridge.vercel.app)
+and passed real Qloo controls and the hosted HTTP journey on 9 October.
+A new local installation still needs its own server configuration and current
+activation evidence; credentials and raw reports are not committed.
 
 This mode uses the reviewed Qloo identities and the supported CLI transport for
 real searches and rankings. The server deterministically inspects eligible stock,
@@ -51,7 +53,7 @@ decision deadline. Daily limits are unchanged; failed attempts still count.
 
 ## Try the real workflow
 
-1. Open the local app and confirm its Qloo/no-LLM badge.
+1. Open the public demo or a configured local app and confirm its Qloo/no-LLM badge.
 2. Click **Try a gift rescue**, review the Amélie film matches and select the
    recipient's exact identity. Live tastes are never preselected.
 3. Select artist search, enter **Aurora Aksnes**, and choose the reviewed singer.
@@ -66,6 +68,15 @@ zero ranking calls. Reload restores the session without a provider call. The app
 does not make purchases or reservations and does not collect customer identities.
 
 ## Verified evidence and limits
+
+The 9 October deployment passed fresh P00 controls (13/13, with 10/10 nonempty
+profiles), the current local HTTP journey (8/8) and the public Vercel HTTP journey
+(8/8). Each HTTP journey reserved five Qloo calls and zero OpenAI calls. The
+hosted check verified secure session cookies, API no-store headers, restored
+state and the shared Redis ledger. Current local tests passed 134/134.
+See [validation history](VALIDATION.md) for scope and dated evidence.
+
+### Earlier local verification
 
 The real HTTP smoke passed all eight checks: bootstrap, reviewed searches,
 initial decision, exclusion, $15 rebuild, gift card, session restore and zero-call
@@ -90,8 +101,9 @@ The Qloo-only report has `qlooOnlyEndToEndVerified=true` and
 `liveEndToEndVerified=false`. It cannot activate the Qloo + OpenAI mode or be
 counted as a successful LLM comparison. The later [MCP tool pass](AGENT-MCP.md)
 verified real Qloo over stdio, with no OpenAI. An external LLM agent run,
-independent human ratings, public source and externally tested HTTPS hosting
-remain open. The English recording still shows the offline fixture.
+independent human ratings and current source publication remain separate work.
+Public HTTPS hosting is now verified. The English recording still shows the
+offline fixture.
 
 ## Switch modes
 

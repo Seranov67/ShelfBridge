@@ -1,9 +1,11 @@
 # ShelfBridge — A different book. The same thoughtfulness.
 
 Preparation draft, updated 9 October 2026. Qloo-only is the primary mode;
-OpenAI access is not needed for this release. Public demo and repository links
-are pending. Historical real Qloo controls and the deterministic Qloo-only HTTP
-journey passed; the changed deployment build requires fresh HTTP evidence.
+OpenAI access is not needed for this release. The public demo is
+[shelfbridge.vercel.app](https://shelfbridge.vercel.app). Current real Qloo controls
+and both local and public deterministic Qloo-only HTTP journeys passed on
+9 October. Prepared source commits still need publication to the designated
+repository; see [validation](VALIDATION.md) for publication status.
 The MCP tool interface passed a real Qloo protocol check; an external LLM agent
 run remains unverified. Review the status before submitting.
 
@@ -36,12 +38,13 @@ It has not been connected to a partner bookstore's inventory.
 ## How we built it
 
 The application uses vanilla HTML/CSS/JavaScript and a Node.js server. Policy code
-owns identities, prices, quantities, editions, exclusions and budgets. A bounded
-OpenAI Responses planner is implemented to call `inspect_shelf` and then
-`rank_shelf`; actual tool output is returned to the model.
+owns identities, prices, quantities, editions, exclusions and budgets. Vercel
+serves the UI and Node Function; Upstash Redis shares sessions and atomic daily
+provider quotas across Function instances.
 
 The primary mode uses real Qloo with deterministic server orchestration
-and no LLM. The implemented OpenAI planner remains a separate, unverified mode.
+and no LLM. A bounded OpenAI Responses planner is implemented as a separate,
+unverified mode and is not used by the public release.
 
 Six local MCP tools expose identity search, constrained shelf inspection,
 ranking, confirmed refinements and current gift selection to an existing agent.
@@ -85,9 +88,13 @@ surfaced without silently substituting fixture results.
   local Redis, covering constraints,
   session recovery, keyboard use and mobile layouts.
 - Historical controlled Qloo-only browser checks: 10/10 passed on 7 October.
-- A historical local English Qloo-only app and a separate offline fixture recording.
-- Docker and complete Vercel build preparation passed offline; public hosting is
-  unverified and the current checkout needs credentials and genuine live reports.
+- Public Vercel HTTP journey: 8/8 passed with five Qloo reservations, secure
+  cookies, no-store API responses and restored Redis session state.
+- Public browser search returned the reviewed Amélie (2001) match. Remote MCP
+  initialization, six-tool list and hosted status passed without provider calls.
+- A separate local English fixture recording; the final hosted video is pending.
+- Docker and complete Vercel build checks passed; credentials and activation
+  evidence are configured server-side and remain outside Git.
 
 Codex reviewed identities using real metadata; independent human review is not
 claimed. Tests do not establish recommendation relevance. No satisfaction, sales
@@ -102,23 +109,25 @@ what the system has established and what remains a hypothesis.
 
 ## What's next
 
-Verify the current Qloo-only build, publish the HTTPS demo and open-source
-repository, demonstrate MCP in an existing agent, and collect independent
+Publish the prepared source to the designated open-source repository, record
+the verified public Qloo-only demo, demonstrate MCP in an existing agent, and collect independent
 gift-buyer and bookseller feedback. See [deployment instructions](DEPLOYMENT.md).
 A planned B0/B1/B2/Full comparison will examine whether the bounded agent adds
 value over deterministic ordering and direct Qloo ranking.
 
 ## Built with
 
-JavaScript, Node.js, HTML, CSS, Qloo Taste AI, Qloo harness 0.1.26 and MCP.
+JavaScript, Node.js, HTML, CSS, Qloo Taste AI, Qloo harness 0.1.26, MCP,
+Vercel and Upstash Redis.
 Playwright is used for development checks and demo recording. An optional
 experimental mode implements the OpenAI Responses API.
 
 ## Links and testing materials
 
 - Local prototype: http://127.0.0.1:4318/ (not accessible to remote judges).
-- Public live demo: pending deployment and complete provider verification.
-- Public repository: pending publication; project license is MIT.
+- [Public live demo](https://shelfbridge.vercel.app).
+- [Designated source repository](https://github.com/Seranov67/ShelfBridge);
+  current source synchronization is pending. The project license is MIT.
 - [English judging instructions](JUDGING.md).
 - [English demo script and captions](DEMO.md).
 

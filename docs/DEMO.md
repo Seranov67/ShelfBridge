@@ -9,7 +9,30 @@ The persistent caption bar identifies teaching data and simulated inventory.
 
 This walkthrough makes no external provider calls. Real Qloo controls have passed
 separately; the complete Qloo + OpenAI journey is not yet verified.
-Public publication and a final live submission video are still pending.
+The public Qloo-only application is verified at
+[shelfbridge.vercel.app](https://shelfbridge.vercel.app). A final live submission
+video still needs recording; the existing fixture video is not live evidence.
+
+## Hosted Qloo-only recording plan
+
+Record the public domain and keep **Live Qloo · no LLM · demo inventory** visible.
+The target is approximately two minutes; this is a presentation choice.
+
+| Time | Screen action | English narration |
+| --- | --- | --- |
+| 0–15 s | Public home page and mode badge | When the first-choice gift is unavailable, ShelfBridge preserves the thought behind it. This demo uses real Qloo and a deterministic workflow, with no LLM. |
+| 15–40 s | Try a gift rescue; select Amélie (2001), then search and select Aurora Aksnes | We confirm the exact film and artist identities, then review the unavailable book and the $25 budget. |
+| 40–60 s | Find the thoughtful alternative; show three cards | Qloo ranks only the eligible demo shelf. Server policy enforces prices, stock and the confirmed budget. |
+| 60–80 s | Exclude one title and confirm the rebuild | Already owned? Confirm the exclusion. Every edition of that work is removed. |
+| 80–100 s | Lower the budget to $15 and confirm | The new shortlist stays within the lower budget. |
+| 100–115 s | Open evidence, then choose a gift | The source and confirmed signals are traceable. The gift card keeps the selected description and a draft note. |
+| 115–125 s | Reload, showing the preserved selection | Redis preserves the session across requests. Inventory is simulated; no purchase or reservation is made. |
+
+Use the actual returned titles rather than promising a fixed ranking. One
+successful take spends five Qloo attempts; failures count and repeated takes
+share the operator's 60-attempt daily limit. An optional MCP clip can show the
+six tools and hosted status without claiming an external LLM run that was not
+performed. Do not display environment-variable values or provider keys.
 
 ## Storyboard and English narration
 
@@ -64,8 +87,8 @@ The local app now has a verified real Qloo-only workflow, described in
 A Qloo-only recording must show manual taste confirmation and the no-LLM label;
 it cannot be narrated as a successful OpenAI tool loop.
 
-After the real planner and full HTTP smoke pass, publish and test the actual live
-build before recording it. Use the same story with manual cultural identity
+For this primary Qloo-only release, the public HTTP smoke has passed and no
+OpenAI planner is required. Record the verified public build using manual cultural identity
 confirmation: search Amélie and Aurora Aksnes and select the correct matches.
 Show genuine source and agent labels. Keep the simulated-inventory disclosure.
 
