@@ -39,7 +39,7 @@ durable state relies on the Function filesystem. API responses are uncached.
 
 ## 1. Prepare the repository and verify Qloo
 
-Repository: [sergeimarianchik/ShelfBridge](https://github.com/sergeimarianchik/ShelfBridge).
+Repository: [Seranov67/ShelfBridge](https://github.com/Seranov67/ShelfBridge).
 Keep `.env`, `.runtime`, `.tools`, `node_modules`, `.vercel` and `test-results`
 out of Git. The MIT license and English instructions are included.
 
