@@ -9,10 +9,17 @@ shortlist that fits the available shelf and maximum budget.
 The prototype uses **simulated inventory: 30 book works and 31 SKUs**.
 It makes no purchase or reservation.
 
-The configured local app now runs **real Qloo with a deterministic workflow and
-no LLM**. OpenAI credits are not needed for this mode. Its complete HTTP journey
-passed on 7 October; see [Qloo-only setup and evidence](docs/QLOO-ONLY.md).
-The commands below still provide a separate offline demo without keys.
+The primary application mode is **real Qloo with a deterministic workflow and
+no LLM**. `npm start` defaults to `qloo_only`, loads an optional local `.env`, and
+refuses to start without current configuration and live evidence. OpenAI is not
+required. The historical Qloo-only journey passed on 7 October; the deployment
+changes require fresh evidence before activation. This checkout has no credentials
+or successful live reports. See [Qloo-only setup](docs/QLOO-ONLY.md).
+
+[Publishing the complete app on Vercel](docs/DEPLOYMENT.md) explains the prepared
+hosting configuration: static UI, a Node Function and shared Upstash Redis state.
+No separate VPS or built-in LLM is required. MCP can connect to the published
+Vercel HTTPS API with explicit `--remote`. A local build does not publish a site.
 
 The [local MCP bridge](docs/AGENT-MCP.md) exposes six tools to an existing agent
 without using the OpenAI API. Its real Qloo protocol journey passed 13 checks
@@ -21,16 +28,17 @@ A connection template is included.
 
 ## Run the local demo
 
-Use Node.js 22 or newer. Fixture mode needs no package installation or API keys.
+Use Node.js 22.19 or newer. Fixture mode needs no package installation or API keys.
 
 ```sh
-node src/server.mjs
+npm run start:fixture
 ```
 
 Open [ShelfBridge locally](http://127.0.0.1:4318/). The badge should read
-**Teaching demo · Qloo offline**. On an already-configured workstation, verify
-`SHELFBRIDGE_MODE=fixture` before starting. `npm start` loads the local `.env`;
-the direct command does not load it, but both inherit shell variables.
+**Teaching demo · Qloo offline**. This explicit command overrides a configured
+live mode. The direct `node src/server.mjs` command remains a fixture-first
+development entrypoint without loading `.env`; `npm start` is the Qloo-first
+application launcher.
 
 1. Click **Try a gift rescue**. Review Amélie and AURORA, the unavailable book
    and the $25 maximum.

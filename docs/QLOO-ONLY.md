@@ -1,7 +1,9 @@
 # Real Qloo without an OpenAI planner
 
-Updated 7 October 2026. The local workstation is configured as `qloo_only`.
-The interface says **Live Qloo · no LLM · demo inventory**.
+Updated 9 October 2026. Qloo-only is the primary application and Docker mode.
+The configured interface says **Live Qloo · no LLM · demo inventory**.
+The current checkout needs credentials, the supported harness and fresh live
+evidence; previous workstation activation is historical, not a current guarantee.
 
 This mode uses the reviewed Qloo identities and the supported CLI transport for
 real searches and rankings. The server deterministically inspects eligible stock,
@@ -29,6 +31,12 @@ Activation makes zero provider calls and changes only `SHELFBRIDGE_MODE`.
 The application also checks the evidence on startup; changing server code or
 reviewed identities requires fresh Qloo-only evidence. A concurrent server or
 collector cannot share the runtime lock.
+
+`npm start` loads an optional `.env` and defaults to Qloo-only. An explicit mode
+in the shell or `.env` is respected. `npm run start:qloo` forces Qloo-only;
+`npm run start:fixture` forces the offline demonstration. No OpenAI key is needed
+for either. [Deployment instructions](DEPLOYMENT.md) cover the complete Vercel
+application, shared Redis sessions/budget, current evidence and remote MCP.
 
 On the prepared Windows workstation, the equivalent startup command is:
 

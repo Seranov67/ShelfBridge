@@ -19,23 +19,34 @@ import {currentLiveCodeFingerprint} from './live-evidence.mjs';
 const root=dirname(dirname(fileURLToPath(import.meta.url)));
 const assets=new Map([['/',['index.html','text/html; charset=utf-8']],['/app.js',['app.js','text/javascript; charset=utf-8']],['/style.css',['style.css','text/css; charset=utf-8']]]);
 const apiMethods=new Map([['/api/bootstrap','GET'],['/api/search','GET'],['/api/decision','GET'],['/api/decide','POST'],['/api/refine','POST'],['/api/gift-card','POST']]);
-export function createApp({mode='fixture',provider=new FixtureProvider(),planner=new Planner({enabled:false}),now=Date.now,maxSessions=200,decisionTimeoutMs=20000,searchTimeoutMs=mode==='qloo_only'?20000:7000}={}) {
+export function createRequestHandler({mode='fixture',provider=new FixtureProvider(),planner=new Planner({enabled:false}),now=Date.now,maxSessions=200,decisionTimeoutMs=20000,searchTimeoutMs=mode==='qloo_only'?20000:7000,publicOrigin=process.env.PUBLIC_ORIGIN||null,sessionStore=null,secureCookies=process.env.PUBLIC_HTTPS==='true'}={}) {
   if(!['fixture','live','qloo_only'].includes(mode))throw Error('Choose fixture, live or qloo_only mode');
   if(mode==='qloo_only'&&(provider.source!=='qloo'||planner.enabled))throw Error('Qloo-only mode requires Qloo and a disabled LLM planner');
+  if(publicOrigin){
+    let url;try{url=new URL(publicOrigin);}catch{throw Error('PUBLIC_ORIGIN must be an exact HTTP(S) origin.');}
+    if(!['https:','http:'].includes(url.protocol)||url.origin!==publicOrigin)throw Error('PUBLIC_ORIGIN must be an exact HTTP(S) origin with no path or trailing slash.');
+  }
   const sessions=new Map();const knownWorks=new Set(catalog.map(e=>e.workKey));
-  function getSession(req,res) {
+  async function getSession(req,res) {
     for(const [key,s]of sessions)if(s.expires<=now())sessions.delete(key);
     const cookie=(req.headers.cookie||'').split(';').find(c=>c.trim().startsWith('sb_session='))?.trim().slice(11);
-    if(cookie&&sessions.has(cookie))return sessions.get(cookie);
+    if(sessionStore){
+      const lease=await sessionStore.acquire(cookie);
+      if(lease.isNew)res.setHeader('Set-Cookie',`sb_session=${lease.token}; Path=/; HttpOnly; SameSite=Strict; Max-Age=1800${secureCookies?'; Secure':''}`);
+      return lease;
+    }
+    if(cookie&&sessions.has(cookie))return {session:sessions.get(cookie)};
     if(sessions.size>=maxSessions)throw fail('The demo is at capacity. Try again later.',503,'capacity');
     const token=randomBytes(32).toString('hex');
     const s={tastes:new Map(),request:null,decision:null,refinements:0,runs:0,searches:0,busy:false,expires:now()+30*60*1000};
-    sessions.set(token,s);res.setHeader('Set-Cookie',`sb_session=${token}; Path=/; HttpOnly; SameSite=Strict; Max-Age=1800${process.env.PUBLIC_HTTPS==='true'?'; Secure':''}`);return s;
+    sessions.set(token,s);res.setHeader('Set-Cookie',`sb_session=${token}; Path=/; HttpOnly; SameSite=Strict; Max-Age=1800${secureCookies?'; Secure':''}`);return {session:s};
   }
-  return createServer(async(req,res)=>{
+  return async(req,res)=>{
     res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('Referrer-Policy','no-referrer');res.setHeader('Cache-Control','no-store');
     res.setHeader('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'");
-    const json=(status,data)=>{res.writeHead(status,{'Content-Type':'application/json; charset=utf-8'});res.end(JSON.stringify(data));};
+    let lease,response;
+    // Persist the result before replying: another Function may serve the next request.
+    const json=(status,data)=>{response={status,data};};
     try {
       const url=new URL(req.url,'http://localhost');
       if(req.method==='GET'&&assets.has(url.pathname)) {const [file,type]=assets.get(url.pathname);res.writeHead(200,{'Content-Type':type});res.end(readFileSync(join(root,'public',file)));return;}
@@ -45,19 +56,20 @@ export function createApp({mode='fixture',provider=new FixtureProvider(),planner
       if(req.method!==method){res.setHeader('Allow',method);throw fail('Method not supported.',405);}
       // Searches spend provider calls; protect GET API requests as well as mutations.
       const origin=req.headers.origin;
-      const expectedOrigin=`${process.env.PUBLIC_HTTPS==='true'?'https':'http'}://${req.headers.host}`;
+      const expectedOrigin=publicOrigin||`${process.env.PUBLIC_HTTPS==='true'?'https':'http'}://${req.headers.host}`;
       const site=req.headers['sec-fetch-site'];
       if((origin&&origin!==expectedOrigin)||(site&&!['same-origin','none'].includes(site)))throw fail('Cross-site requests are not allowed.',403);
       if(req.method==='POST') {
         if(!/^application\/json(?:\s*;|$)/i.test(req.headers['content-type']||''))throw fail('Use a JSON request.',415);
       }
-      const session=getSession(req,res);
+      lease=await getSession(req,res);const session=lease.session;
       if(req.method==='GET'&&url.pathname==='/api/bootstrap')return json(200,{mode,agent:planner.enabled?'llm':'deterministic',catalog,catalogVersion,stockAsOf,presets:mode==='fixture'?fixtureTastes.slice(0,2):[],lastDecision:session.decision,refinementsLeft:2-session.refinements});
       if(req.method==='GET'&&url.pathname==='/api/search') {
         const query=url.searchParams.get('query')?.trim(),type=url.searchParams.get('type');
         if(!query||query.length>100||!['movie','artist','book'].includes(type))throw fail('Enter a title or artist, up to 100 characters.');
         if(session.searches>=20)throw fail('Search limit reached for this session.',429,'search_limit');
         session.searches++;
+        await lease.save?.();
         const controller=new AbortController();
         const timeout=setTimeout(()=>controller.abort(fail('Search timed out. Please try again.',504,'search_timeout')),searchTimeoutMs);
         const disconnect=()=>{if(!res.writableEnded)controller.abort();};res.once('close',disconnect);
@@ -87,6 +99,7 @@ export function createApp({mode='fixture',provider=new FixtureProvider(),planner
         const disconnect=()=>{if(!res.writableEnded)controller.abort();};res.once('close',disconnect);
         session.busy=true;session.runs++;
         try {
+          await lease.save?.();
           const previous=url.pathname==='/api/refine'?session.decision:null;
           const result=await withSignal(decide({request:next,tastes:next.tasteIds.map(id=>session.tastes.get(id)),provider,planner,previous,signal:controller.signal}),controller.signal);
           session.request=next;session.decision=result;
@@ -95,9 +108,17 @@ export function createApp({mode='fixture',provider=new FixtureProvider(),planner
         } finally {clearTimeout(timeout);res.removeListener('close',disconnect);session.busy=false;}
       }
       throw fail('Endpoint not found.',404);
-    }catch(error){if(!res.destroyed)json(error.status||500,{error:error.status?error.message:'Unexpected server error.',code:error.code||'server_error'});}
-  });
+    }catch(error){json(error.status||500,{error:error.status?error.message:'Unexpected server error.',code:error.code||'server_error'});}
+    finally{
+      try{await lease?.save?.();}
+      catch(error){json(error.status||503,{error:'Session storage is unavailable. Please reconnect.',code:error.code||'session_unavailable'});}
+      finally{try{await lease?.release?.();}catch{}}
+      if(response&&!res.destroyed){res.writeHead(response.status,{'Content-Type':'application/json; charset=utf-8'});res.end(JSON.stringify(response.data));}
+    }
+  };
 }
+
+export function createApp(options={}) {return createServer(createRequestHandler(options));}
 
 if(process.argv[1]&&fileURLToPath(import.meta.url)===process.argv[1]) {
   const mode=process.env.SHELFBRIDGE_MODE||'fixture';if(!['fixture','live','qloo_only'].includes(mode))throw Error('Choose fixture, live or qloo_only mode');

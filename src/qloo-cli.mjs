@@ -10,7 +10,8 @@ const root=dirname(dirname(fileURLToPath(import.meta.url)));
 export const supportedHarnessVersion='0.1.26';
 export function cliPaths(env=process.env) {
   const localNode=join(root,'.tools','node','node.exe');
-  return {node:env.QLOO_NODE_PATH||((process.platform==='win32'&&existsSync(localNode))?localNode:process.execPath),entry:env.QLOO_CLI_ENTRY||join(root,'.tools','runtime','node_modules','@qloo','qloo-harness','dist','bin.js'),home:join(root,'.runtime','qloo')};
+  const installed=join(root,'node_modules','@qloo','qloo-harness','dist','bin.js');
+  return {node:env.QLOO_NODE_PATH||((process.platform==='win32'&&existsSync(localNode))?localNode:process.execPath),entry:env.QLOO_CLI_ENTRY||(existsSync(installed)?installed:join(root,'.tools','runtime','node_modules','@qloo','qloo-harness','dist','bin.js')),home:env.SHELFBRIDGE_QLOO_HOME||join(root,'.runtime','qloo')};
 }
 export function inspectCliRuntime(env=process.env) {
   const paths=cliPaths(env);let nodeVersion=null,harnessVersion=null;
@@ -75,7 +76,7 @@ export class QlooCliProvider extends QlooProvider {
     this.ensureRuntime();
     if(typeof this.key!=='string'||!this.key.trim()||this.key.trim().startsWith('<'))throw fail('Qloo is not configured on this server.',503,'source_unavailable');
     const deadline=signal?AbortSignal.any([signal,AbortSignal.timeout(this.requestTimeoutMs)]):AbortSignal.timeout(this.requestTimeoutMs);
-    deadline.throwIfAborted();const args=cliArguments(path,params);this.budget.reserve('qloo');
+    deadline.throwIfAborted();const args=cliArguments(path,params);await this.budget.reserve('qloo',deadline);deadline.throwIfAborted();
     let data;
     try{data=await withSignal(this.runner({...this.paths,args,env:{...this.env,QLOO_API_KEY:this.key},signal:deadline}),deadline);}
     catch(error){if(error.status)throw error;throw fail('Qloo CLI did not respond in time. No simulated results were substituted.',503,'source_unavailable');}

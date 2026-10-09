@@ -23,7 +23,7 @@ export class QlooProvider {
     const url=new URL(path,'https://hackathon.api.qloo.com');
     for(const [k,v]of Object.entries(params))if(v!==''&&v!=null)url.searchParams.set(k,String(v));
     const deadline=signal?AbortSignal.any([signal,AbortSignal.timeout(7000)]):AbortSignal.timeout(7000);
-    deadline.throwIfAborted();this.budget.reserve('qloo');
+    deadline.throwIfAborted();await this.budget.reserve('qloo',deadline);deadline.throwIfAborted();
     try {
       const response=await withSignal(this.fetchImpl(url,{headers:{'X-Api-Key':this.key},signal:deadline,redirect:'error'}),deadline);
       if(!response.ok) {

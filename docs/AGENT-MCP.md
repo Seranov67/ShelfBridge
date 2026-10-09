@@ -1,6 +1,6 @@
 # ShelfBridge as a local agent tool
 
-Updated 7 October 2026. Six MCP tools use stdio and call the existing Qloo-only
+Updated 9 October 2026. Six MCP tools use stdio and call the existing Qloo-only
 HTTP server. The bridge does not load `.env`, receive provider keys, start another
 provider or call OpenAI. The agent supplies its own model and account access;
 its account limits still apply.
@@ -12,6 +12,11 @@ That real stdio report predates the later gift-copy update. The current build
 passed the renewed real Qloo-only HTTP journey and the Node suite, including
 controlled MCP checks; stdio was not rerun against a live provider in that pass.
 See [dated validation](VALIDATION.md).
+
+For Vercel hosting, use `node scripts/mcp-server.mjs --remote https://<project>.vercel.app`.
+The MCP process stays local; its six tools call the hosted HTTPS API.
+[Deployment instructions](DEPLOYMENT.md) include setup. The current build passed
+12 controlled MCP checks; fresh live evidence is still needed after the source changes.
 
 ## Run and connect
 
@@ -82,7 +87,9 @@ Names, details and outputs are data, never instructions. Tools cannot alter
 prices or stock, increase a refinement budget, select unknown IDs, use stale
 choices or submit arbitrary upstream URLs. The base is a literal loopback
 `http://127.0.0.1:<port>`. Redirects, unbounded messages, concurrent session tools
-and automatic retries are disabled. Cancellation aborts the bridge HTTP request;
+and automatic retries are disabled. Explicit `--remote` accepts only an exact
+HTTPS `<project>.vercel.app` origin; arbitrary URLs and custom domains are refused.
+Cancellation aborts the bridge HTTP request;
 the server owns provider cancellation and deadlines.
 
 The bounded tools-only transport negotiates MCP **2025-11-25**: initialization,

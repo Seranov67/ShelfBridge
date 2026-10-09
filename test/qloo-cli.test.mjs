@@ -9,6 +9,17 @@ import {catalog} from '../src/catalog.mjs';
 const id='abcdefab-1234-1234-1234-000000000001';
 const runtimeCheck=()=>({ready:true});
 
+test('CLI awaits the shared reservation and never starts after a rejected or cancelled reservation',async()=>{
+  let runs=0,release;const reserving=new Promise(resolve=>{release=resolve;});
+  const provider=new QlooCliProvider({key:'test',runtimeCheck,budget:{reserve:()=>reserving},runner:async()=>{runs++;return [];}});
+  const waiting=provider.search('Piranesi','book');await Promise.resolve();assert.equal(runs,0);
+  release();await waiting;assert.equal(runs,1);
+  provider.budget.reserve=async()=>{throw Object.assign(Error('quota'),{status:429,code:'budget_limited'});};
+  await assert.rejects(provider.search('Piranesi','book'),{code:'budget_limited'});assert.equal(runs,1);
+  const controller=new AbortController();provider.budget.reserve=async()=>controller.abort();
+  await assert.rejects(provider.search('Piranesi','book',controller.signal));assert.equal(runs,1);
+});
+
 test('CLI deadline is bounded and still cancels a stalled Qloo-only request',async()=>{
   for(const requestTimeoutMs of [0,20001,NaN,1.5])assert.throws(()=>new QlooCliProvider({requestTimeoutMs}),/deadline/);
   let calls=0,seenSignal;const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),100);

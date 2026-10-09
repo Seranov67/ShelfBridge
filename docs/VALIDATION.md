@@ -1,5 +1,34 @@
 # Validation history
 
+## Qloo-only default and deployment preparation · 9 October
+
+The application launcher and Docker image now default to Qloo-only. The explicit
+fixture launcher remains available; MCP still exposes the existing six tools.
+Vercel preparation builds three static browser assets and a private Node Function.
+Atomic Redis scripts share sessions, quotas and leases across Function instances;
+budget migration preserves today's local verification spending. MCP supports
+explicit connection to the public Vercel HTTPS API. A configured public origin
+does not trust arbitrary forwarded host headers.
+
+**134/134 Node tests**, including six integration checks against real local
+Redis, **12/12 controlled MCP checks** and **27/27 browser checks through two
+independent Function handlers sharing Redis** passed. The browser run reported
+zero JavaScript errors. The complete Vercel build passed. The packaged Function's
+pinned CLI dry-run passed on Node 22.23.3 with a read-only bundle, writable `/tmp`
+and networking disabled. Missing live evidence was refused. Earlier Docker/CLI
+checks also passed offline. These checks do not verify an actual
+Vercel deployment, a current real Qloo journey or an external LLM agent.
+
+The current source fingerprint is
+`7efe56c3a1e9232972f014654bf6ccc23a6f894529169f1ca24483a294a62f42`.
+Earlier HTTP evidence cannot activate this changed build. This checkout has no
+provider credentials or successful live P00/HTTP reports. Nothing was published;
+real controls, current HTTP smoke and an external hosted walkthrough remain
+necessary. See [deployment instructions](DEPLOYMENT.md).
+
+Ignored artifacts: `mcp-controlled-report.json`,
+`vercel-browser-report.json`, `browser-report.json` and `.vercel/output`.
+
 ## Buyer-facing descriptions and gift note · 7 October
 
 Shortlist cards now show the existing catalog `note`. Per-book ranking prose is

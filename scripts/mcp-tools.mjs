@@ -42,9 +42,15 @@ export function localBase(value) {
   return url.origin;
 }
 
+export function vercelBase(value){
+  // Explicit opt-in to one public Vercel deployment, with no arbitrary upstreams.
+  if(typeof value!=='string'||!/^https:\/\/[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.vercel\.app$/.test(value))throw Error('Use an exact HTTPS <project>.vercel.app origin with no path or credentials.');
+  return value;
+}
+
 export class ShelfBridgeTools {
-  constructor({base='http://127.0.0.1:4318',allowFixture=false,fetchImpl=fetch,timeoutMs=25000}={}) {
-    this.base=localBase(base);this.allowFixture=allowFixture;this.fetchImpl=fetchImpl;this.timeoutMs=timeoutMs;
+  constructor({base='http://127.0.0.1:4318',remoteBase=null,allowFixture=false,fetchImpl=fetch,timeoutMs=25000}={}) {
+    this.base=remoteBase?vercelBase(remoteBase):localBase(base);this.allowFixture=allowFixture;this.fetchImpl=fetchImpl;this.timeoutMs=timeoutMs;
     this.cookie='';this.tastes=new Map();this.brief=null;this.decision=null;this.request=null;this.refinements=0;this.busy=false;
   }
   clear(){this.tastes.clear();this.brief=null;this.decision=null;this.request=null;this.refinements=0;}

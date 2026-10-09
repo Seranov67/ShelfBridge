@@ -4,10 +4,13 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=22"
+    "node": ">=22.19"
   },
   "scripts": {
-    "start": "node --env-file-if-exists=.env src/server.mjs",
+    "start": "node scripts/start.mjs",
+    "start:fixture": "node scripts/start.mjs --fixture",
+    "start:qloo": "node scripts/start.mjs --qloo-only",
+    "build:vercel": "node scripts/build-vercel.mjs",
     "test": "node --test test/*.test.mjs",
     "test:browser": "node scripts/browser-check.mjs",
     "test:browser:qloo": "node scripts/qloo-only-browser-check.mjs",
@@ -35,5 +38,8 @@
     "qloo:discover": "node --env-file-if-exists=.env scripts/qloo-discover.mjs",
     "test:cli": "node scripts/qloo-cli-check.mjs"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@qloo/qloo-harness": "0.1.26"
+  }
 }

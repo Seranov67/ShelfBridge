@@ -66,14 +66,16 @@ export function serveMcp({input,output,bridge,maxMessageBytes=16384}={}) {
 
 if(process.argv[1]&&fileURLToPath(import.meta.url)===process.argv[1]) {
   const args=process.argv.slice(2);
-  let base='http://127.0.0.1:4318',allowFixture=false;
+  let base='http://127.0.0.1:4318',remoteBase=null,allowFixture=false;
   try {
     for(let i=0;i<args.length;i++) {
       if(args[i]==='--base'&&args[i+1])base=args[++i];
+      else if(args[i]==='--remote'&&args[i+1])remoteBase=args[++i];
       else if(args[i]==='--allow-fixture')allowFixture=true;
-      else throw Error('Use --base http://127.0.0.1:<port>; --allow-fixture is for explicit offline testing.');
+      else throw Error('Use --base http://127.0.0.1:<port> or --remote https://<project>.vercel.app; --allow-fixture is for explicit offline testing.');
     }
-    const transport=serveMcp({input:process.stdin,output:process.stdout,bridge:new ShelfBridgeTools({base,allowFixture})});
+    if(remoteBase&&args.includes('--base'))throw Error('Choose local or remote mode.');
+    const transport=serveMcp({input:process.stdin,output:process.stdout,bridge:new ShelfBridgeTools({base,remoteBase,allowFixture})});
     for(const s of ['SIGINT','SIGTERM'])process.once(s,()=>transport.close());
-  }catch{process.stderr.write('ShelfBridge MCP configuration failed. Use a literal loopback base URL.\n');process.exitCode=1;}
+  }catch{process.stderr.write('ShelfBridge MCP configuration failed. Use a literal loopback URL or explicit --remote HTTPS Vercel origin.\n');process.exitCode=1;}
 }

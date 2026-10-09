@@ -7,11 +7,12 @@ services:
     environment:
       HOST: 0.0.0.0
       PORT: "4318"
-      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
     ports:
       - "127.0.0.1:4318:4318"
     volumes:
       - shelfbridge-runtime:/app/.runtime
+      # Current, sanitized P00 and Qloo-only HTTP evidence; never credentials.
+      - ./test-results:/app/test-results:ro
     read_only: true
     tmpfs:
       - /tmp:size=16m

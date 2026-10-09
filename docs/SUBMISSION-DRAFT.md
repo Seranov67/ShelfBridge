@@ -1,8 +1,9 @@
 # ShelfBridge — A different book. The same thoughtfulness.
 
-Preparation draft, updated 7 October 2026. Public demo and repository links are
-pending. Real Qloo controls and the deterministic Qloo-only HTTP journey passed;
-the complete Qloo + OpenAI journey is still blocked by OpenAI API credits.
+Preparation draft, updated 9 October 2026. Qloo-only is the primary mode;
+OpenAI access is not needed for this release. Public demo and repository links
+are pending. Historical real Qloo controls and the deterministic Qloo-only HTTP
+journey passed; the changed deployment build requires fresh HTTP evidence.
 The MCP tool interface passed a real Qloo protocol check; an external LLM agent
 run remains unverified. Review the status before submitting.
 
@@ -39,7 +40,7 @@ owns identities, prices, quantities, editions, exclusions and budgets. A bounded
 OpenAI Responses planner is implemented to call `inspect_shelf` and then
 `rank_shelf`; actual tool output is returned to the model.
 
-The current local mode uses real Qloo with deterministic server orchestration
+The primary mode uses real Qloo with deterministic server orchestration
 and no LLM. The implemented OpenAI planner remains a separate, unverified mode.
 
 Six local MCP tools expose identity search, constrained shelf inspection,
@@ -68,8 +69,9 @@ Preserving constraints across changes is another challenge. Exclusions remove
 every edition of a work, a lower budget cannot be raised by a provider, and stale
 briefs pause gift selection until the current state is loaded.
 
-OpenAI API credits are exhausted, so the complete live planner journey has not
-passed. Live errors are surfaced without silently substituting fixture results.
+The experimental OpenAI planner journey has not passed because its API credits
+were exhausted. It is outside the primary Qloo-only release. Live errors are
+surfaced without silently substituting fixture results.
 
 ## What we have verified
 
@@ -78,10 +80,14 @@ passed. Live errors are surfaced without silently substituting fixture results.
   control and 10/10 nonempty taste profiles.
 - Real Qloo-only journey: eight HTTP checks with five Qloo calls and zero OpenAI,
   including confirmed tastes, exclusions, lower budget, gift and no-stock handling.
-- Local checks: 119/119 Node tests and 23/23 fixture browser scenarios, covering
-  constraints, session recovery, keyboard use and mobile layouts.
-- Nine controlled Qloo-only browser checks covering labels and recovery.
-- A working local English Qloo-only app and a separate offline fixture recording.
+- Current local checks: 134/134 Node tests, 12/12 controlled MCP checks and
+  27/27 fixture browser scenarios through two Function handlers sharing real
+  local Redis, covering constraints,
+  session recovery, keyboard use and mobile layouts.
+- Historical controlled Qloo-only browser checks: 10/10 passed on 7 October.
+- A historical local English Qloo-only app and a separate offline fixture recording.
+- Docker and complete Vercel build preparation passed offline; public hosting is
+  unverified and the current checkout needs credentials and genuine live reports.
 
 Codex reviewed identities using real metadata; independent human review is not
 claimed. Tests do not establish recommendation relevance. No satisfaction, sales
@@ -96,15 +102,17 @@ what the system has established and what remains a hypothesis.
 
 ## What's next
 
-Restore planner API access, pass the live journey, publish the HTTPS demo and
-open-source repository, and collect independent gift-buyer and bookseller feedback.
+Verify the current Qloo-only build, publish the HTTPS demo and open-source
+repository, demonstrate MCP in an existing agent, and collect independent
+gift-buyer and bookseller feedback. See [deployment instructions](DEPLOYMENT.md).
 A planned B0/B1/B2/Full comparison will examine whether the bounded agent adds
 value over deterministic ordering and direct Qloo ranking.
 
 ## Built with
 
-JavaScript, Node.js, HTML, CSS, Qloo Taste AI, Qloo harness 0.1.26 and OpenAI
-Responses API. Playwright is used for development checks and demo recording.
+JavaScript, Node.js, HTML, CSS, Qloo Taste AI, Qloo harness 0.1.26 and MCP.
+Playwright is used for development checks and demo recording. An optional
+experimental mode implements the OpenAI Responses API.
 
 ## Links and testing materials
 
