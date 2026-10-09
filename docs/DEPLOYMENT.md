@@ -1,10 +1,12 @@
 # Publish the complete ShelfBridge application on Vercel
 
-Prepared 9 October 2026. Primary mode: **Qloo-only**, with no built-in LLM.
+Published 9 October 2026: [ShelfBridge](https://shelfbridge.vercel.app).
+Primary mode: **Qloo-only**, with no built-in LLM.
 The browser UI and Node API run in one Vercel project. Shared state uses
 **Upstash Redis**, connected through Vercel Marketplace. No separate VPS is
 required. MCP remains a six-tool stdio interface on the agent's computer and
-can call the published HTTPS API. This preparation has not published a site.
+can call the published HTTPS API. The public HTTP journey passed eight checks
+with five Qloo reservations and no OpenAI calls. See [validation](VALIDATION.md).
 
 ```text
 Browser → Vercel HTTPS → static UI
@@ -76,8 +78,12 @@ the changed source. Controlled tests cannot replace genuine live reports.
 3. Add **Upstash Redis** from Storage / Marketplace and connect it to this
    project's Production environment. Use its HTTPS REST URL and write token.
    Check the resulting variable names against the table below.
-4. Choose the stable production `<project>.vercel.app` URL or a custom domain.
-   Set `PUBLIC_ORIGIN` to that exact HTTPS origin, with no trailing slash.
+4. Use the Production domain listed in Project Settings → Domains, currently
+   `shelfbridge.vercel.app`. Set `PUBLIC_ORIGIN` to that exact HTTPS origin,
+   with no trailing slash. The CLI may also display an alias containing the
+   team slug; that service alias can require Vercel Authentication even while
+   the project's Production domain is public. Verify the chosen domain without
+   authentication before configuring it.
 
 Set these **server-side Production environment variables**:
 

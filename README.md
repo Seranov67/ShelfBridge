@@ -12,14 +12,21 @@ It makes no purchase or reservation.
 The primary application mode is **real Qloo with a deterministic workflow and
 no LLM**. `npm start` defaults to `qloo_only`, loads an optional local `.env`, and
 refuses to start without current configuration and live evidence. OpenAI is not
-required. The historical Qloo-only journey passed on 7 October; the deployment
-changes require fresh evidence before activation. This checkout has no credentials
-or successful live reports. See [Qloo-only setup](docs/QLOO-ONLY.md).
+required. Current live Qloo controls and the complete HTTP journey passed on
+9 October 2026. Credentials and activation reports remain outside Git.
+See [Qloo-only setup](docs/QLOO-ONLY.md).
 
-[Publishing the complete app on Vercel](docs/DEPLOYMENT.md) explains the prepared
+[Open the public ShelfBridge demo](https://shelfbridge.vercel.app).
+[Publishing the complete app on Vercel](docs/DEPLOYMENT.md) explains the verified
 hosting configuration: static UI, a Node Function and shared Upstash Redis state.
 No separate VPS or built-in LLM is required. MCP can connect to the published
 Vercel HTTPS API with explicit `--remote`. A local build does not publish a site.
+
+The public deployment passed all eight HTTP journey checks on 9 October:
+real searches, three choices, exclusion, a lower budget, gift-card contents,
+session restoration and the no-stock path. The shared Redis ledger recorded
+five Qloo reservations and no OpenAI calls. This verifies operation, not
+independent recommendation quality. See [validation](docs/VALIDATION.md).
 
 The [local MCP bridge](docs/AGENT-MCP.md) exposes six tools to an existing agent
 without using the OpenAI API. Its real Qloo protocol journey passed 13 checks

@@ -1,5 +1,41 @@
 # Validation history
 
+## Public Vercel release · 9 October
+
+[ShelfBridge](https://shelfbridge.vercel.app) is public and runs the complete
+Qloo-only application on Vercel with shared Upstash Redis state. The release
+was built from local commit `f1ab60cf9b7211d2174d24183c3f595b422fd62c` and promoted
+as deployment `dpl_GwK6TVQGqwTE9SbqsuPNcwaarrSj`. Publication of the prepared
+commits to `Seranov67/ShelfBridge` still requires authenticated write access;
+the site was deployed directly through the authorized Vercel CLI.
+
+Fresh real Qloo P00 controls passed **13/13**, with **10/10 nonempty profiles**.
+The current local HTTP journey passed **8/8**, using five Qloo calls and no
+OpenAI calls. Only after these genuine reports passed was contract approval
+enabled and the current evidence configured in Vercel Production.
+
+The public Production HTTP journey also passed **8/8**: bootstrap, confirmed
+searches, three initial choices, confirmed exclusion, a $15 rebuild, matching
+gift-card contents, restored session and no stock. Its shared Redis ledger
+moved **19 → 24**, exactly five reservations. Session cookies were Secure,
+HttpOnly and SameSite=Strict; API responses used `Cache-Control: no-store`.
+The Production domain responded without Vercel sign-in. The team-scoped CLI
+alias remained protected, so `PUBLIC_ORIGIN` uses the public project domain.
+
+The public browser search returned the reviewed Amélie (2001) match. The local
+MCP stdio bridge connected to the public HTTPS API: initialization, the list
+of six tools and `shelf_status` passed with clean stdout and no provider calls.
+This connection check does not attest a full hosted MCP recommendation journey
+or an external LLM agent run. The shared ledger stood at 25/60 after the browser
+search; Redis credentials and state remain separate from Git.
+
+Keys, Redis credentials and raw activation reports remain ignored. These
+checks verify the deployment and provider integration; they do not establish
+an external LLM agent run, independent recommendation quality or sales impact.
+Ignored evidence: `p00.json`, `qloo-only-smoke.json` and
+`vercel-production-http.json` and `vercel-remote-mcp-status.json` under
+`test-results`.
+
 ## Qloo-only default and deployment preparation · 9 October
 
 The application launcher and Docker image now default to Qloo-only. The explicit

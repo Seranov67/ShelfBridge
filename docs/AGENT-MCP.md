@@ -13,7 +13,8 @@ passed the renewed real Qloo-only HTTP journey and the Node suite, including
 controlled MCP checks; stdio was not rerun against a live provider in that pass.
 See [dated validation](VALIDATION.md).
 
-For Vercel hosting, use `node scripts/mcp-server.mjs --remote https://<project>.vercel.app`.
+For the public Vercel deployment, use
+`node scripts/mcp-server.mjs --remote https://shelfbridge.vercel.app`.
 The MCP process stays local; its six tools call the hosted HTTPS API.
 [Deployment instructions](DEPLOYMENT.md) include setup. The current build passed
 12 controlled MCP checks; fresh live evidence is still needed after the source changes.
