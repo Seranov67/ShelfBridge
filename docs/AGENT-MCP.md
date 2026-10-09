@@ -17,13 +17,23 @@ For the public Vercel deployment, use
 `node scripts/mcp-server.mjs --remote https://shelfbridge.vercel.app`.
 The MCP process stays local; its six tools call the hosted HTTPS API.
 [Deployment instructions](DEPLOYMENT.md) include setup. The current build passed
-12 controlled MCP checks; fresh live evidence is still needed after the source changes.
+12 controlled MCP checks and the public bridge's initialization, six-tool list
+and hosted status. The public Qloo-only HTTP journey passed eight checks.
+Those checks do not replace a full current hosted MCP journey or an external
+LLM agent demonstration.
 
 ## Run and connect
 
-Start and keep running the verified server using [Qloo-only setup](QLOO-ONLY.md).
-All provider calls go through its shared ledger, lock and session limits.
-The MCP process itself does not take the provider lock.
+For the public deployment, use Node 22.19+ and
+[mcp-vercel.example.toml](mcp-vercel.example.toml), replacing its absolute paths
+with the local checkout. The agent launches the stdio bridge; no local HTTP
+server or provider key is needed. The agent's model connection is required only
+when using that agent, and the public browser application remains Qloo-only.
+
+For a local API instead, start and keep running the verified server using
+[Qloo-only setup](QLOO-ONLY.md). All provider calls go through the selected
+server's shared ledger and session limits. The MCP process itself does not take
+the local provider lock.
 
 ```sh
 npm run test:mcp

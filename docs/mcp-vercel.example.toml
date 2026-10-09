@@ -1,0 +1,9 @@
+# Requires Node 22.19+ and a local copy of the project.
+# Replace the two absolute paths for your checkout. No provider keys here.
+# The public API runs on Vercel; no local HTTP server is required.
+[mcp_servers.shelfbridge]
+command = 'node'
+args = ['/absolute/path/ShelfBridge/scripts/mcp-server.mjs', '--remote', 'https://shelfbridge.vercel.app']
+cwd = '/absolute/path/ShelfBridge'
+startup_timeout_sec = 10
+tool_timeout_sec = 30
