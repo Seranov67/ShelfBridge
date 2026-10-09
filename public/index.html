@@ -33,5 +33,17 @@
     <footer><span class="brand small">▥ ShelfBridge</span><p>When the perfect gift is out of stock, preserve the person’s taste.</p><span>Made for thoughtful alternatives.</span></footer>
   </main>
   <dialog id="confirm-dialog" aria-labelledby="confirm-title" aria-describedby="confirm-text"><form method="dialog"><p class="eyebrow">ONE CHANGE, CLEARLY CONFIRMED</p><h2 id="confirm-title">Rebuild the shortlist?</h2><p id="confirm-text"></p><div class="dialog-actions"><button value="cancel" class="secondary">Keep this selection</button><button value="confirm" class="primary">Confirm & rebuild</button></div></form></dialog>
-  <dialog id="gift-dialog" aria-label="Gift card"><div class="gift-head"><p class="eyebrow">A BOOK, CHOSEN WITH CARE</p><button id="close-gift" class="text-button" aria-label="Close gift card">✕</button></div><div id="gift-content"></div><div class="dialog-actions"><button id="copy-gift" class="secondary">Copy gift note</button><button id="print-gift" class="primary">Print card</button></div><p id="copy-status" role="status"></p></dialog>
+  <dialog id="gift-dialog" aria-label="Gift card">
+    <div class="gift-head"><p class="eyebrow">A BOOK, CHOSEN WITH CARE</p><button id="close-gift" class="text-button" aria-label="Close gift card">✕</button></div>
+    <div id="gift-panel"><div id="gift-content"></div><div class="dialog-actions"><button id="copy-gift" class="secondary">Copy gift note</button><button id="print-gift" class="primary">Print card</button></div><p id="copy-status" role="status"></p><div class="demo-entry"><button id="demo-checkout" class="secondary">Try demo checkout</button><p class="hint">Payment simulation only. No money is charged and no book is ordered.</p></div></div>
+    <section id="checkout-panel" class="hidden" aria-labelledby="checkout-title">
+      <p class="eyebrow">DEMO · NO REAL PAYMENT</p><h2 id="checkout-title" tabindex="-1">Try a test payment</h2>
+      <p class="muted">Explore the checkout with this selected book. No card details or personal information are needed.</p>
+      <div id="checkout-summary" class="checkout-summary"></div>
+      <p id="checkout-status" class="checkout-status" role="status" aria-live="polite"></p>
+      <div class="dialog-actions"><button id="demo-decline" class="secondary">Simulate declined payment</button><button id="demo-approve" class="primary">Simulate successful payment</button></div>
+      <button id="checkout-back" class="text-button">Cancel demo & return to gift card</button>
+      <p class="hint">This simulation stays in this open card only. Closing it or reloading clears it. Nothing is purchased, reserved, shipped or saved as a real order.</p>
+    </section>
+  </dialog>
 </body></html>

@@ -8,6 +8,9 @@ shortlist that fits the available shelf and maximum budget.
 
 The prototype uses **simulated inventory: 30 book works and 31 SKUs**.
 It makes no purchase or reservation.
+The gift card includes **Try demo checkout**: a browser-only payment simulation
+with success, decline and retry outcomes. It collects no payment details and
+charges no money. See [demo payment setup](docs/PAYMENTS.md).
 
 The primary application mode is **real Qloo with a deterministic workflow and
 no LLM**. `npm start` defaults to `qloo_only`, loads an optional local `.env`, and
@@ -54,6 +57,8 @@ application launcher.
 4. Lower the budget to $15 and confirm another rebuild.
 5. Open **Why these choices?** to inspect the source and decision trail.
 6. Choose a gift and copy or print its card.
+7. Optionally click **Try demo checkout** and simulate a declined or successful
+   payment. This is a UI demonstration, not a payment-provider sandbox.
 
 Fixture ordering is hand-authored teaching data and the workflow is deterministic.
 It never calls Qloo or OpenAI, even when credentials exist.

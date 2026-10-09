@@ -1,5 +1,5 @@
 const $=id=>document.getElementById(id);
-let bootstrap,selected=[],decision=null,busy=false,gift=null,refinementsLeft=2,dirty=false,ready=false,stale=false;
+let bootstrap,selected=[],decision=null,busy=false,gift=null,demoPayment=null,refinementsLeft=2,dirty=false,ready=false,stale=false;
 const money=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(n/100);
 function el(tag,text,cls){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;}
 async function api(path,body){
@@ -65,8 +65,32 @@ function evidence(){const box=$('evidence-content');box.replaceChildren();$('evi
   if(decision.cards.length){const rankings=el('ul',undefined,'ranking-details');for(const c of decision.cards)rankings.append(el('li',`${c.title} — ${c.reason}`));box.append(el('p','Ranking details','evidence-heading'),rankings);}
   for(const t of decision.tastes){if(decision.tastes.length<2)break;const b=el('button',`Remove taste: ${t.name}`,'text-button');b.dataset.refinement='true';b.addEventListener('click',()=>change({kind:'remove_taste',tasteId:t.id},`Remove “${t.name}” from the confirmed taste signals and make a fresh ranking. Budget and exclusions stay in place.`));box.append(b);}
 }
-async function chooseGift(c){if(busy||dirty||stale||!ready)return;setBusy(true);try{gift=await api('/api/gift-card',{sku:c.sku,version:decision.version,decisionId:decision.id});$('gift-content').replaceChildren(el('h2',gift.title),el('p',`by ${gift.author}`,'author'),el('p',gift.giftNote,'gift-note'),el('p',gift.note,'gift-description'),el('p',`${gift.format} · ${money(gift.priceMinor)} · ${gift.sku}`,'gift-metadata'),el('p',`Demo inventory: price and stock are simulated. ${gift.source==='fixture'?'Sample recommendation; no live Qloo evidence.':'Based on a live Qloo ranking.'} No purchase or reservation has been made.`,'hint'));$('copy-status').textContent='';$('gift-dialog').showModal();document.querySelectorAll('.workflow span').forEach((s,i)=>s.classList.toggle('active',i===2));}catch(e){showError(e);}finally{setBusy(false);}}
-$('close-gift').addEventListener('click',()=>$('gift-dialog').close());$('gift-dialog').addEventListener('close',()=>document.querySelectorAll('.workflow span').forEach((s,i)=>s.classList.toggle('active',i===1)));$('copy-gift').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(gift.text);$('copy-status').textContent='Gift note copied.';}catch{$('copy-status').textContent='Copy is unavailable in this browser. Use Print card instead.';}});$('print-gift').addEventListener('click',()=>window.print());
+async function chooseGift(c){if(busy||dirty||stale||!ready)return;setBusy(true);try{gift=await api('/api/gift-card',{sku:c.sku,version:decision.version,decisionId:decision.id});$('gift-content').replaceChildren(el('h2',gift.title),el('p',`by ${gift.author}`,'author'),el('p',gift.giftNote,'gift-note'),el('p',gift.note,'gift-description'),el('p',`${gift.format} · ${money(gift.priceMinor)} · ${gift.sku}`,'gift-metadata'),el('p',`Demo inventory: price and stock are simulated. ${gift.source==='fixture'?'Sample recommendation; no live Qloo evidence.':'Based on a live Qloo ranking.'} No purchase or reservation has been made.`,'hint'));$('copy-status').textContent='';demoPayment=null;checkoutView(false);$('gift-dialog').showModal();document.querySelectorAll('.workflow span').forEach((s,i)=>s.classList.toggle('active',i===2));}catch(e){showError(e);}finally{setBusy(false);}}
+$('close-gift').addEventListener('click',()=>$('gift-dialog').close());$('gift-dialog').addEventListener('close',()=>{demoPayment=null;checkoutView(false);document.querySelectorAll('.workflow span').forEach((s,i)=>s.classList.toggle('active',i===1));});$('copy-gift').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(gift.text);$('copy-status').textContent='Gift note copied.';}catch{$('copy-status').textContent='Copy is unavailable in this browser. Use Print card instead.';}});$('print-gift').addEventListener('click',()=>window.print());
+function checkoutView(open){
+  $('gift-panel').classList.toggle('hidden',open);$('checkout-panel').classList.toggle('hidden',!open);
+  $('gift-dialog').setAttribute('aria-label',open?'Demo checkout':'Gift card');
+  $('close-gift').setAttribute('aria-label',open?'Close demo checkout':'Close gift card');
+}
+function renderDemoPayment(){
+  const approved=demoPayment.state==='approved',declined=demoPayment.state==='declined';
+  $('checkout-status').textContent=approved?'Demo payment successful. No money was charged. No purchase or reservation has been made.':declined?'Demo payment declined. No money was charged. Try the successful outcome or return to the gift card.':'Ready for a simulation. Choose an outcome below; no money will be charged.';
+  $('checkout-status').classList.toggle('approved',approved);
+  $('demo-approve').disabled=approved;$('demo-decline').disabled=approved;
+  $('demo-approve').textContent=declined?'Retry: simulate successful payment':'Simulate successful payment';
+  $('checkout-back').textContent=approved?'Return to gift card':'Cancel demo & return to gift card';
+}
+$('demo-checkout').addEventListener('click',()=>{
+  if(!gift||!$('gift-dialog').open)return;
+  demoPayment??={id:`DEMO-${crypto.randomUUID()}`,state:'pending'};
+  $('checkout-summary').replaceChildren(el('strong',gift.title),el('p',`by ${gift.author}`,'author'),el('p',`1 × ${gift.format} · ${gift.sku}`),el('p',`Demo total: ${money(gift.priceMinor)} USD`),el('p',`Test reference: ${demoPayment.id}`,'hint'));
+  checkoutView(true);renderDemoPayment();$('checkout-title').focus();
+});
+for(const [id,state]of [['demo-approve','approved'],['demo-decline','declined']])$(id).addEventListener('click',()=>{
+  if(!demoPayment||demoPayment.state==='approved')return;
+  demoPayment.state=state;renderDemoPayment();$('checkout-status').setAttribute('tabindex','-1');$('checkout-status').focus();
+});
+$('checkout-back').addEventListener('click',()=>{if(demoPayment?.state!=='approved')demoPayment=null;checkoutView(false);$('demo-checkout').focus();});
 function restoreBootstrap(data){
   bootstrap=data;ready=true;stale=false;refinementsLeft=data.refinementsLeft;
   $('mode').textContent=data.mode==='fixture'?'Teaching demo · Qloo offline':data.mode==='qloo_only'?'Live Qloo · no LLM · demo inventory':'Qloo · awaiting live verification';$('mode').classList.toggle('fixture',data.mode==='fixture');
